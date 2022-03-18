@@ -5,6 +5,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20220317233505_Create-Tbl-Devices.cs" />
+    <Compile Remove="Migrations\20220317233505_Create-Tbl-Devices.Designer.cs" />
+    <Compile Remove="Migrations\20220318000048_Create-Tbl-DeviceDetails.cs" />
+    <Compile Remove="Migrations\20220318000048_Create-Tbl-DeviceDetails.Designer.cs" />
+    <Compile Remove="Migrations\20220318004115_Create-Tbl-Devices.cs" />
+    <Compile Remove="Migrations\20220318004115_Create-Tbl-Devices.Designer.cs" />
+    <Compile Remove="Migrations\20220318004142_Seed-Tbl-Devices.cs" />
+    <Compile Remove="Migrations\20220318004142_Seed-Tbl-Devices.Designer.cs" />
+    <Compile Remove="Migrations\20220318004528_Seed_Tbl_Devices.cs" />
+    <Compile Remove="Migrations\20220318004528_Seed_Tbl_Devices.Designer.cs" />
+    <Compile Remove="Migrations\20220318004628_Create_Tbl_DeviceDetails.cs" />
+    <Compile Remove="Migrations\20220318004628_Create_Tbl_DeviceDetails.Designer.cs" />
+    <Compile Remove="Migrations\20220318011501_Seed_Tbl_Devices.cs" />
+    <Compile Remove="Migrations\20220318011501_Seed_Tbl_Devices.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.23" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="3.1.23" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.23">
@@ -13,11 +30,19 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.23" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.23">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Device.DomainShared\Device.DomainShared.csproj" />
     <ProjectReference Include="..\Device.Domain\Device.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

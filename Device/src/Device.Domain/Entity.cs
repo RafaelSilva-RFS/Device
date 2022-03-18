@@ -10,7 +10,7 @@ namespace Device.Domain
 
         public DateTime CreationTime { get; set; }
 
-        public bool IsDeleted { get; set; }
+        public bool IsDeleted { get; set; } = false;
 
         protected Entity()
         {
