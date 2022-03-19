@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Device.HttpApi.Host.Controllers
 {
-    [Route("api/v1/devices")]
+    [Route("api/v1/")]
     [ApiController]
     public class DevicesController : ControllerBase
     {
