@@ -1,3 +1,4 @@
+using Device.Application.Contracts.Devices;
 using Device.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -13,6 +14,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Device.Application.Device;
+using Device.Application.Contracts.Devices.Repositories;
+using Device.EntityFramework.Devices;
 
 namespace Device.HttpApi.Host
 {
@@ -28,7 +32,7 @@ namespace Device.HttpApi.Host
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DeviceDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));            
 
             services.AddControllers();
 
@@ -42,6 +46,8 @@ namespace Device.HttpApi.Host
                     License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
                 });
             });
+            services.AddScoped<IDevicesRepository, DevicesRepository>();
+            services.AddScoped<IDeviceService, DeviceService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -65,7 +71,7 @@ namespace Device.HttpApi.Host
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers();                
             });
         }
     }

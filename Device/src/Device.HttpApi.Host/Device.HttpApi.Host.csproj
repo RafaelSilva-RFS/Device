@@ -13,6 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Device.Application\Device.Application.csproj" />
+    <ProjectReference Include="..\Device.Application.Contracts\Device.Application.Contracts.csproj" />
     <ProjectReference Include="..\Device.EntityFramework\Device.EntityFramework.csproj" />
   </ItemGroup>
 

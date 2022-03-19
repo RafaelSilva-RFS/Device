@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Device.Domain", "src\Device.Domain\Device.Domain.csproj", "{B29C420B-EC35-4C57-B0CC-6FF02E0EC07C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Device.Domain", "src\Device.Domain\Device.Domain.csproj", "{B29C420B-EC35-4C57-B0CC-6FF02E0EC07C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Device.DomainShared", "src\Device.DomainShared\Device.DomainShared.csproj", "{4B82470F-D603-421F-AF5D-431346615055}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Device.DomainShared", "src\Device.DomainShared\Device.DomainShared.csproj", "{4B82470F-D603-421F-AF5D-431346615055}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Device.EntityFramework", "src\Device.EntityFramework\Device.EntityFramework.csproj", "{3018E753-DDE3-4308-A7E3-1926D77BA5F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Device.EntityFramework", "src\Device.EntityFramework\Device.EntityFramework.csproj", "{3018E753-DDE3-4308-A7E3-1926D77BA5F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Device.HttpApi.Host", "src\Device.HttpApi.Host\Device.HttpApi.Host.csproj", "{654F7D5B-1A4F-456F-BEB6-F1D37189DBB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Device.HttpApi.Host", "src\Device.HttpApi.Host\Device.HttpApi.Host.csproj", "{654F7D5B-1A4F-456F-BEB6-F1D37189DBB0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Device.Application.Contracts", "src\Device.Application.Contracts\Device.Application.Contracts.csproj", "{FC923020-FF4B-46E3-808A-1A2F44D78824}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Device.Application", "Device.Application\Device.Application.csproj", "{8285E73A-BB9C-4FB5-BE42-7758D5A7D9BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{654F7D5B-1A4F-456F-BEB6-F1D37189DBB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{654F7D5B-1A4F-456F-BEB6-F1D37189DBB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{654F7D5B-1A4F-456F-BEB6-F1D37189DBB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC923020-FF4B-46E3-808A-1A2F44D78824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC923020-FF4B-46E3-808A-1A2F44D78824}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC923020-FF4B-46E3-808A-1A2F44D78824}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC923020-FF4B-46E3-808A-1A2F44D78824}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8285E73A-BB9C-4FB5-BE42-7758D5A7D9BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8285E73A-BB9C-4FB5-BE42-7758D5A7D9BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8285E73A-BB9C-4FB5-BE42-7758D5A7D9BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8285E73A-BB9C-4FB5-BE42-7758D5A7D9BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
