@@ -11,5 +11,7 @@ namespace Device.Application.Contracts.Devices.Repositories
                                                             string sorting,
                                                             string filter,
                                                             int? deviceType);
+
+        Task<int> CountAllDevicesAsync();
     }
 }

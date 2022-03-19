@@ -7,5 +7,7 @@ namespace Device.Application.Contracts.Devices
     public interface IDeviceService
     {
         Task<PagedResultDto<DeviceDto>> GetDevicesPagedAsync(GetDeviceDto input);
+
+        Task<int> CountAllDevicesAsync();
     }
 }

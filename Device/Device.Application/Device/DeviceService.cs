@@ -34,5 +34,10 @@ namespace Device.Application.Device
 
             return new PagedResultDto<DeviceDto>(totalCount, devices);
         }
+
+        public async Task<int> CountAllDevicesAsync()
+        {
+            return await _devicesRepository.CountAllDevicesAsync();
+        }
     }
 }
