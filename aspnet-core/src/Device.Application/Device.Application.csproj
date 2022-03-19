@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Device.Application.Contracts\Device.Application.Contracts.csproj" />
-    <ProjectReference Include="..\Device.Domain\Device.Domain.csproj" />
+    <ProjectReference Include="..\Device.EntityFramework\Device.EntityFramework.csproj" />
   </ItemGroup>
 
 </Project>
