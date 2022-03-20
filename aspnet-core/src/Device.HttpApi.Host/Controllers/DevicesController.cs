@@ -46,7 +46,21 @@ namespace Device.HttpApi.Host.Controllers
                 PageNumber = pageNumber < 1 ? 1 : pageNumber
             };
 
-            return await _deviceService.GetDevicesPagedAsync(input);         
+            return await _deviceService.GetDevicesPagedAsync(input);
+        }
+
+        [HttpGet]
+        [Route("get-device-by-id")]
+        public async Task<DeviceDto> GetDeviceByIdAsync(Guid id)
+        {
+            return await _deviceService.GetDeviceByIdAsync(id);
+        }
+
+        [HttpGet]
+        [Route("count-devices-async")]
+        public async Task<int> CountDevicesAsync(string filter, int? status, int? deviceType)
+        {
+            return await _deviceService.CountDevicesAsync(filter, status, deviceType);
         }
 
         [HttpGet]

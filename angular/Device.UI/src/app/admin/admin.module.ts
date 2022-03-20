@@ -10,6 +10,11 @@ import { MyDevicesComponent } from "./my-devices/my-devices.component";
 import { HttpClientModule } from "@angular/common/http";
 import { DeviceService } from "./services/devices.service";
 import { CardDashboardComponent } from './card-dashboard/card-dashboard.component';
+import { DeviceDetailComponent } from './device-detail/device-detail.component';
+import { DeviceDetailRowComponent } from './device-detail-row/device-detail-row.component';
+import { MyDevicesCtaComponent } from './my-devices-cta/my-devices-cta.component';
+import { StatusPipe } from "./pipes/status.pipe";
+import { DeviceIcon } from "./pipes/deviceicon.pipe";
 
 @NgModule({
     imports: [
@@ -24,13 +29,22 @@ import { CardDashboardComponent } from './card-dashboard/card-dashboard.componen
     declarations: [
         DashboardComponent,
         MyDevicesComponent,
-        CardDashboardComponent
-
+        CardDashboardComponent,
+        DeviceDetailComponent,
+        DeviceDetailRowComponent,
+        MyDevicesCtaComponent,
+        StatusPipe,
+        DeviceIcon
     ],
     exports: [
         DashboardComponent,
         MyDevicesComponent,
-        CardDashboardComponent
+        CardDashboardComponent,
+        DeviceDetailComponent,
+        DeviceDetailRowComponent,
+        MyDevicesCtaComponent,
+        StatusPipe,
+        DeviceIcon
     ]
 })
 export class AdminModule{}

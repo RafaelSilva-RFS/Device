@@ -13,9 +13,9 @@ export class HeaderComponent {
       exact: true
     },
     {
-      link: '/my-devices',
+      link: '/devices',
       name: 'MY DEVICES',
-      exact: true
+      exact: false
     }
   ];
 

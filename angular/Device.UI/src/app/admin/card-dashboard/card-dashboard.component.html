@@ -1,10 +1,19 @@
 <div class="card mb-3 border-warning">
     <div class="card-body">
-        <div class="row align-items-center">
-            <div class="col-4 col-lg-2">
+
+        <div class="row" *ngIf="this.cardDashboard == null || this.cardDashboard.Value == null">
+            <div class="col-12 text-center">
+                <div class="fa-2x">
+                    <i class="fa-solid fa-circle-notch fa-spin"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center" *ngIf="this.cardDashboard != null && this.cardDashboard.Value != null">
+            <div class="col-4 col-lg-3">
                 <i class="fa-solid fa-3x" [ngClass]="this.cardDashboard.Icon"></i>
             </div>
-            <div class="col-8 col-lg-10">
+            <div class="col-8 col-lg-9">
                 <p class="fw-bold mb-0 text-end">
                     {{ this.cardDashboard.Title }}
                 </p>
@@ -13,5 +22,6 @@
                 </p>
             </div>
         </div>
+
     </div>
 </div>

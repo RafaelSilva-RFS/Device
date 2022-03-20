@@ -1,6 +1,8 @@
 export interface Device {
     id: string,
+    name: string,
+    type: number,
     creationTime: Date,
-    Name: string,
-    Type: number
+    status: number,
+    DeviceDetail: any[]
 }

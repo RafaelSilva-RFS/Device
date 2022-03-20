@@ -1,7 +1,6 @@
 ﻿using Device.DomainShared.Device.Enums;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Device.Application.Contracts.Devices.Dtos
 {
@@ -16,5 +15,7 @@ namespace Device.Application.Contracts.Devices.Dtos
         public DateTime CreationTime { get; set; }
 
         public DeviceStatus Status { get; set; }
+
+        public List<DeviceDetailDto> DeviceDetail { get; set; }
     }
 }

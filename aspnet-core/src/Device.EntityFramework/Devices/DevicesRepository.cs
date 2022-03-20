@@ -46,6 +46,25 @@ namespace Device.EntityFramework.Devices
             return (totalCount, result);
         }
 
+        public async Task<DeviceDomain.Device> GetDeviceByIdAsync(Guid id)
+        {
+            return await _deviceDbContext.Devices
+                        .Where(x => x.Id == id && !x.IsDeleted)
+                        .Include(x => x.DeviceDetails)
+                        .FirstOrDefaultAsync();
+        }
+
+        public async Task<int> CountDevicesAsync(string filter,
+                                                 int? status,
+                                                 int? deviceType)
+        {
+            return await _deviceDbContext.Devices
+                        .WhereIf(!String.IsNullOrEmpty(filter), x => x.Name.Contains(filter))
+                        .WhereIf(deviceType != null, x => x.Type == (DeviceType)deviceType)
+                        .WhereIf(status != null, x => x.Status == (DeviceStatus)status)
+                        .Where(x => !x.IsDeleted).CountAsync();
+        }
+
         public async Task<int> CountAllDevicesAsync()
         {
             return await _deviceDbContext.Devices.Where(x => !x.IsDeleted).CountAsync();

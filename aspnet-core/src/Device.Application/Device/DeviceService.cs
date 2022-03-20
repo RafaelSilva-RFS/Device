@@ -22,7 +22,12 @@ namespace Device.Application.Device
 
         public async Task<PagedResultDto<DeviceDto>> GetDevicesPagedAsync(GetDeviceDto input)
         {
-            var (totalCount, result) = await _devicesRepository.GetDevicesPagedAsync(input.SkipCount, input.MaxResultCount, input.Sorting, input.Filter, input.Status, input.DeviceType);
+            var (totalCount, result) = await _devicesRepository.GetDevicesPagedAsync(input.SkipCount, 
+                                                                                     input.MaxResultCount, 
+                                                                                     input.Sorting, 
+                                                                                     input.Filter,
+                                                                                     input.Status, 
+                                                                                     input.DeviceType);
 
             var devices = result.Select(x => new DeviceDto()
             {
@@ -34,6 +39,34 @@ namespace Device.Application.Device
             }).ToList();
 
             return new PagedResultDto<DeviceDto>(totalCount, devices);
+        }
+
+        public async Task<DeviceDto> GetDeviceByIdAsync(Guid id)
+        {
+            var result = await _devicesRepository.GetDeviceByIdAsync(id);
+
+            return new DeviceDto()
+            {
+                Id = result.Id,
+                Name = result.Name,
+                CreationTime = result.CreationTime,
+                Type = result.Type,
+                Status = result.Status,
+                DeviceDetail = result.DeviceDetails.Select(x => new DeviceDetailDto
+                {
+                    DeviceId = result.Id,
+                    Temperature = x.Temperature,
+                    Usage = x.Usage,
+                    CreationTime = x.CreationTime
+                }).ToList()
+            };
+        }
+
+        public async Task<int> CountDevicesAsync(string filter,
+                                                 int? status,
+                                                 int? deviceType)
+        {
+            return await _devicesRepository.CountDevicesAsync(filter, status, deviceType);
         }
 
         public async Task<int> CountAllDevicesAsync()
