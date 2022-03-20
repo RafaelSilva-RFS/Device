@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -21,7 +22,8 @@ import { DeviceIcon } from "./pipes/deviceicon.pipe";
         CommonModule,
         AdminRoutingModule,
         PaginationModule,
-        HttpClientModule
+        HttpClientModule,
+        ReactiveFormsModule
     ],
     providers: [
         DeviceService

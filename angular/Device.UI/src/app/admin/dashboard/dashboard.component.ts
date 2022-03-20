@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
     pageNumber: "1",
     maxResultCount: "3"
   };
-  
+
 
   offlineDevices: Device[];
   offlineDevicesInput: GetDevicesRequest = {
@@ -50,7 +50,7 @@ export class DashboardComponent implements OnInit {
     maxResultCount: "3"
   };
 
- 
+
 
   ngOnInit(): void {
 
