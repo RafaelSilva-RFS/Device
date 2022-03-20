@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Device.EntityFramework.Migrations
 {
     [DbContext(typeof(DeviceDbContext))]
-    [Migration("20220318012425_Seed_Tbl_Devices")]
+    [Migration("20220320055539_Seed_Tbl_Devices")]
     partial class Seed_Tbl_Devices
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,6 +38,9 @@ namespace Device.EntityFramework.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
@@ -52,6 +55,7 @@ namespace Device.EntityFramework.Migrations
                             CreationTime = new DateTime(2022, 3, 17, 8, 31, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Name = "Work Smartphone",
+                            Status = 0,
                             Type = 0
                         },
                         new
@@ -60,6 +64,7 @@ namespace Device.EntityFramework.Migrations
                             CreationTime = new DateTime(2022, 3, 17, 10, 23, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Name = "Son Ipad",
+                            Status = 0,
                             Type = 1
                         },
                         new
@@ -68,23 +73,8 @@ namespace Device.EntityFramework.Migrations
                             CreationTime = new DateTime(2022, 3, 18, 9, 4, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Name = "Home Laptop",
+                            Status = 0,
                             Type = 3
-                        },
-                        new
-                        {
-                            Id = new Guid("b2780a57-cce2-4244-9c28-5cee4c04f6b7"),
-                            CreationTime = new DateTime(2022, 3, 19, 11, 38, 0, 0, DateTimeKind.Unspecified),
-                            IsDeleted = false,
-                            Name = "Work Server",
-                            Type = 2
-                        },
-                        new
-                        {
-                            Id = new Guid("6cd66acb-33c5-43a4-8987-5ef566ed524c"),
-                            CreationTime = new DateTime(2022, 3, 19, 15, 38, 0, 0, DateTimeKind.Unspecified),
-                            IsDeleted = false,
-                            Name = "School Desktop",
-                            Type = 2
                         },
                         new
                         {
@@ -92,23 +82,17 @@ namespace Device.EntityFramework.Migrations
                             CreationTime = new DateTime(2022, 3, 19, 17, 38, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Name = "Hall Television",
+                            Status = 0,
                             Type = 6
                         },
                         new
                         {
-                            Id = new Guid("4274be17-8e8e-4012-8be4-978579607f3a"),
-                            CreationTime = new DateTime(2022, 3, 20, 10, 23, 0, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("b2780a57-cce2-4244-9c28-5cee4c04f6b7"),
+                            CreationTime = new DateTime(2022, 3, 19, 11, 38, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            Name = "Mom Ipad",
-                            Type = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("46c2ae34-db80-40d1-ac73-d9b01eaf511c"),
-                            CreationTime = new DateTime(2022, 3, 21, 9, 4, 0, 0, DateTimeKind.Unspecified),
-                            IsDeleted = false,
-                            Name = "Daughter Laptop",
-                            Type = 3
+                            Name = "Work Server",
+                            Status = 0,
+                            Type = 2
                         },
                         new
                         {
@@ -116,14 +100,16 @@ namespace Device.EntityFramework.Migrations
                             CreationTime = new DateTime(2022, 3, 21, 11, 38, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Name = "Bedroom TV",
+                            Status = 0,
                             Type = 6
                         },
                         new
                         {
                             Id = new Guid("9bea121f-ae8e-4db3-b433-419596e573eb"),
-                            CreationTime = new DateTime(2022, 3, 23, 15, 38, 0, 0, DateTimeKind.Unspecified),
+                            CreationTime = new DateTime(2022, 3, 22, 15, 38, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Name = "Mom Smartphone",
+                            Status = 0,
                             Type = 0
                         });
                 });
@@ -142,9 +128,6 @@ namespace Device.EntityFramework.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
 
                     b.Property<float>("Temperature")
                         .HasColumnType("real");

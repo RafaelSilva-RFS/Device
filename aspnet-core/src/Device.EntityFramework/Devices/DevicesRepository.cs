@@ -25,19 +25,22 @@ namespace Device.EntityFramework.Devices
                                                                           int maxResultCount,
                                                                           string sorting,
                                                                           string filter,
+                                                                          int? status,
                                                                           int? deviceType)
         {
-            var result = await _deviceDbContext.Device
+            var result = await _deviceDbContext.Devices
                         .WhereIf(!String.IsNullOrEmpty(filter), x => x.Name.Contains(filter))
                         .WhereIf(deviceType != null, x => x.Type == (DeviceType)deviceType)
+                        .WhereIf(status != null, x => x.Status == (DeviceStatus)status)
                         .Where(x => !x.IsDeleted)
                         .OrderBy(String.IsNullOrEmpty(sorting) ? "CreationTime Asc" : sorting)
                         .Skip(skipCount)
                         .Take(maxResultCount)
                         .ToListAsync();
 
-            var totalCount = await _deviceDbContext.Device
+            var totalCount = await _deviceDbContext.Devices
                             .Where(x => x.Name.Contains((!String.IsNullOrEmpty(filter) ? filter : "")) && !x.IsDeleted)
+                            .WhereIf(status != null, x => x.Status == (DeviceStatus)status)
                             .CountAsync();
 
             return (totalCount, result);
@@ -45,7 +48,7 @@ namespace Device.EntityFramework.Devices
 
         public async Task<int> CountAllDevicesAsync()
         {
-            return await _deviceDbContext.Device.Where(x => !x.IsDeleted).CountAsync();
+            return await _deviceDbContext.Devices.Where(x => !x.IsDeleted).CountAsync();
         }
     }
 }

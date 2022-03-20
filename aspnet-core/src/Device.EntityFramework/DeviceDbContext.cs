@@ -8,9 +8,8 @@ namespace Device.EntityFramework
         public DeviceDbContext(DbContextOptions<DeviceDbContext> options)
             : base(options) { }
 
-        public DbSet<DeviceDomain.Device> Device { get; set; }
+        public DbSet<DeviceDomain.Device> Devices { get; set; }
         public DbSet<DeviceDomain.DeviceDetails> DeviceDetails { get; set; }
-        //public DbSet<DeviceDomain.DevicesRelated> DevicesRelated { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

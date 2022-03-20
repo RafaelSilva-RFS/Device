@@ -12,5 +12,6 @@ namespace Device.Domain.Device.Entities
         public string Name { get; set; }
 
         public DeviceType Type { get; set; }
+        public DeviceStatus Status { get; set; }
     }
 }

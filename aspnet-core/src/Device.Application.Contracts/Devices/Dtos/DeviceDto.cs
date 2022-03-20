@@ -14,5 +14,7 @@ namespace Device.Application.Contracts.Devices.Dtos
         public DeviceType Type { get; set; }        
 
         public DateTime CreationTime { get; set; }
+
+        public DeviceStatus Status { get; set; }
     }
 }

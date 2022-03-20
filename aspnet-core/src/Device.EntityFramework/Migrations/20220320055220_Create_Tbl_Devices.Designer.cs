@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Device.EntityFramework.Migrations
 {
     [DbContext(typeof(DeviceDbContext))]
-    [Migration("20220318004456_Create_Tbl_Devices")]
+    [Migration("20220320055220_Create_Tbl_Devices")]
     partial class Create_Tbl_Devices
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,6 +37,9 @@ namespace Device.EntityFramework.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");

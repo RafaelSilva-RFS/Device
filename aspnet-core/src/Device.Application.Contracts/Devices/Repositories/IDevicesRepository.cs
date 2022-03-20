@@ -10,6 +10,7 @@ namespace Device.Application.Contracts.Devices.Repositories
                                                             int maxResultCount,
                                                             string sorting,
                                                             string filter,
+                                                            int? status,
                                                             int? deviceType);
 
         Task<int> CountAllDevicesAsync();

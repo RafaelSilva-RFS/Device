@@ -22,14 +22,15 @@ namespace Device.Application.Device
 
         public async Task<PagedResultDto<DeviceDto>> GetDevicesPagedAsync(GetDeviceDto input)
         {
-            var (totalCount, result) = await _devicesRepository.GetDevicesPagedAsync(input.SkipCount, input.MaxResultCount, input.Sorting, input.Filter, input.DeviceType);
+            var (totalCount, result) = await _devicesRepository.GetDevicesPagedAsync(input.SkipCount, input.MaxResultCount, input.Sorting, input.Filter, input.Status, input.DeviceType);
 
             var devices = result.Select(x => new DeviceDto()
             {
                 Id = x.Id,
                 Name = x.Name,
                 CreationTime = x.CreationTime,
-                Type = x.Type
+                Type = x.Type,
+                Status = x.Status
             }).ToList();
 
             return new PagedResultDto<DeviceDto>(totalCount, devices);

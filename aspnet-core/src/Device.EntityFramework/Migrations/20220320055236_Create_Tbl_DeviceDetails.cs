@@ -16,8 +16,7 @@ namespace Device.EntityFramework.Migrations
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeviceId = table.Column<Guid>(nullable: false),
                     Temperature = table.Column<float>(nullable: false),
-                    Usage = table.Column<float>(nullable: false),
-                    Status = table.Column<int>(nullable: false)
+                    Usage = table.Column<float>(nullable: false)
                 },
                 constraints: table =>
                 {

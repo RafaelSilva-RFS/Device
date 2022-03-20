@@ -13,7 +13,6 @@ namespace Device.Domain.Device.Entities
         public Device Device { get; set; }
 
         public float Temperature { get; set; }
-        public float Usage { get; set; }
-        public DeviceStatus Status { get; set; }        
+        public float Usage { get; set; }     
     }
 }

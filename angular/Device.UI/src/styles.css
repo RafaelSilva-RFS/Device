@@ -11,23 +11,29 @@ body {
     color: #474d54;
 }
 
+
 /* Menu */
-.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
+
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show>.nav-link {
     font-weight: bold;
     border-bottom: 3px solid #ffc107;
 }
 
-.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .show>.nav-link {
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-nav .show>.nav-link {
     margin-top: 3px;
 }
 
+
 /* Pagination */
+
 .pagination {
     display: flex;
     justify-content: center;
-  }
+}
 
-  .page-item.active .page-link {
+.page-item.active .page-link {
     z-index: 3;
     color: #474d54;
     background-color: #ffc107;

@@ -1,23 +1,13 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-lg-4">
-            <div class="card mb-3 border-warning">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col-4 col-lg-2">
-                            <i class="fa-solid fa-computer fa-3x"></i>
-                        </div>
-                        <div class="col-8 col-lg-10">
-                            <p class="fw-bold mb-0 text-end">Total devices</p>
-                            <p class="fw-bold mb-0 text-end fs-1 lh-1">10</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <app-card-dashboard [cardDashboard]="totalDevicesCard" *ngIf="this.totalDevicesCard != null" class="col-lg-4">
+        </app-card-dashboard>
 
-        <div class="col-lg-4">
+        <app-card-dashboard [cardDashboard]="totalDevicesUsageCard" *ngIf="this.totalDevicesUsageCard != null" class="col-lg-4">
+        </app-card-dashboard>
+
+        <!-- <div class="col-lg-4">
             <div class="card mb-3 border-warning">
                 <div class="card-body">
                     <div class="row align-items-center">
@@ -47,7 +37,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <div class="row align-items-center">
