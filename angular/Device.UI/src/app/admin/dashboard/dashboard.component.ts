@@ -35,8 +35,8 @@ export class DashboardComponent implements OnInit {
     sorting: "CreationTime Desc",
     status: "",
     deviceType: "",
-    pageNumber: "1",
-    maxResultCount: "3"
+    pageNumber: 1,
+    maxResultCount: 3
   };
 
 
@@ -46,8 +46,8 @@ export class DashboardComponent implements OnInit {
     sorting: "CreationTime Desc",
     status: "1",
     deviceType: "",
-    pageNumber: "1",
-    maxResultCount: "3"
+    pageNumber: 1,
+    maxResultCount: 3
   };
 
 

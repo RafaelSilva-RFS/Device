@@ -3,6 +3,6 @@ export interface GetDevicesRequest {
     sorting: string, 
     status: string, 
     deviceType: string,
-    pageNumber: string,
-    maxResultCount: string
+    pageNumber: number,
+    maxResultCount: number
 }

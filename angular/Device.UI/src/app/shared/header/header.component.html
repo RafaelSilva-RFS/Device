@@ -1,21 +1,24 @@
 <section class="position-sticky top-0 shadow-sm bg-warning" style="z-index: 99;">
-    
+
     <div class="container">
-        <div class="col-lg-2 py-2">
-            <img src="/assets/images/Devices-Logo-Light.svg" alt="Devices logo" class="img-fluid">
+        <div class="row align-items-center">
+            <div class="col-8 col-lg-2 py-2">
+                <img src="/assets/images/Devices-Logo.svg" alt="Devices logo" style="max-width: 200px; width: 100%;">
+            </div>
+            <div class="col-4 navbar-expand-lg navbar-light text-end">
+                <button class="navbar-toggler btn-light" type="button" (click)="this.isCollapsed = !this.isCollapsed;">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
         </div>
     </div>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-0">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <div class="collapse navbar-collapse" [ngClass]="this.isCollapsed ? '' : 'show'">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
                     <li class="nav-item" *ngFor="let item of nav">
-                        <a class="nav-link py-3" [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: item.exact}">
+                        <a class="nav-link py-3" [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: item.exact}" (click)="this.isCollapsed = !this.isCollapsed;">
                             {{ item.name }}
                         </a>
                     </li>
@@ -23,4 +26,5 @@
             </div>
         </div>
     </nav>
+
 </section>

@@ -65,7 +65,7 @@
                 </div>
             </div>
 
-            <pagination [totalItems]="devicesTotal" [itemsPerPage]="5" class="mb-0 mt-3">
+            <pagination [totalItems]="devicesTotal" [itemsPerPage]="devicesListInput.maxResultCount" (pageChanged)="pageChanged($event)" class="mb-0 mt-3">
             </pagination>
 
         </div>

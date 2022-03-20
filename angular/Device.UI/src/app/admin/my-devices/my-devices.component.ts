@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { Device } from '../interfaces/device';
 import { GetDevicesRequest } from '../interfaces/get-devices-request';
 import { PagedDeviceResult } from '../interfaces/paged-device-result';
@@ -24,8 +25,8 @@ export class MyDevicesComponent implements OnInit {
     sorting: "CreationTime Desc",
     status: "",
     deviceType: "",
-    pageNumber: "1",
-    maxResultCount: "5"
+    pageNumber: 1,
+    maxResultCount: 5
   };
 
   ngOnInit(): void {
@@ -39,6 +40,16 @@ export class MyDevicesComponent implements OnInit {
     });
   }
 
+  searchDevices() {
+    this.devicesListInput = Object.assign({}, this.devicesListInput, this.searchForm.value);
+    this.getPagedDevices();
+  }
+
+  pageChanged(event: PageChangedEvent): void {
+    this.devicesListInput.pageNumber = event.page;
+    this.getPagedDevices();
+  }
+
   getPagedDevices() {
     this.deviceService.GetDevicesPaged(this.devicesListInput)
       .subscribe(
@@ -48,10 +59,4 @@ export class MyDevicesComponent implements OnInit {
         }
       );
   }
-
-  searchDevices() {
-    this.devicesListInput = Object.assign({}, this.devicesListInput, this.searchForm.value);
-    this.getPagedDevices();
-  }
-
 }

@@ -25,6 +25,14 @@ body {
     margin-top: 3px;
 }
 
+.navbar-toggler {
+    background-color: #ffffff;
+}
+
+.navbar-collapse {
+    transition: all 0.2s;
+}
+
 
 /* Pagination */
 

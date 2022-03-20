@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html'
+  templateUrl: './header.component.html',
+  encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent {
+
+  isCollapsed = true;
 
   nav: Nav[] = [
     {
@@ -18,7 +21,6 @@ export class HeaderComponent {
       exact: false
     }
   ];
-
 }
 
 interface Nav {
