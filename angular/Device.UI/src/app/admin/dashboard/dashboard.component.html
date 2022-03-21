@@ -23,6 +23,10 @@
                 <div class="card-body">
                     <div class="container-fluid device-detail-box">
 
+                        <div *ngIf="this.lastDevices == null || this.lastDevices.length < 1">
+                            <h3 class="text-center mb-0">There are no devices registered</h3>
+                        </div>
+
                         <app-device-detail-row *ngFor="let item of this.lastDevices" [device]="item">
                         </app-device-detail-row>
 
@@ -40,6 +44,15 @@
                 </div>
                 <div class="card-body">
                     <div class="container-fluid">
+
+                        <!-- {{this.offlineDevices == null}} {{this.offlineDevices.length}} {{this.lastDevices != null}} -->
+                        <div *ngIf="(this.offlineDevices == null || this.offlineDevices.length < 1) && (this.lastDevices != null && this.lastDevices.length > 0)">
+                            <h3 class="text-center text-success mb-0">All devices are available!</h3>
+                        </div>
+
+                        <div *ngIf="this.lastDevices == null || this.lastDevices.length < 1">
+                            <h3 class="text-center mb-0">There are no devices registered</h3>
+                        </div>
 
                         <app-device-detail-row *ngFor="let item of this.offlineDevices" [device]="item">
                         </app-device-detail-row>
