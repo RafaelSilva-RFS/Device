@@ -29,16 +29,17 @@ export class DashboardComponent implements OnInit {
     status: "0"
   };
 
-  lastDevices: Device[];
-  lastDevicesInput: GetDevicesRequest = {
-    filter: "",
-    sorting: "CreationTime Desc",
-    status: "",
-    deviceType: null,
-    pageNumber: 1,
-    maxResultCount: 3
-  };
+  // lastDevices: Device[];
+  // lastDevicesInput: GetDevicesRequest = {
+  //   filter: "",
+  //   sorting: "CreationTime Desc",
+  //   status: "",
+  //   deviceType: null,
+  //   pageNumber: 1,
+  //   maxResultCount: 3
+  // };
 
+  mostUsedDevices: Device[];
 
   offlineDevices: Device[];
   offlineDevicesInput: GetDevicesRequest = {
@@ -83,10 +84,17 @@ export class DashboardComponent implements OnInit {
         }
       );
 
-    this.deviceService.GetDevicesPaged(this.lastDevicesInput)
+    // this.deviceService.GetDevicesPaged(this.lastDevicesInput)
+    //   .subscribe(
+    //     result => {
+    //       this.lastDevices = result.items;
+    //     }
+    //   );
+
+    this.deviceService.GetMostUsedDevicesPaged(3)
       .subscribe(
         result => {
-          this.lastDevices = result.items;
+          this.mostUsedDevices = result;
         }
       );
 

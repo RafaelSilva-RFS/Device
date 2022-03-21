@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -68,6 +69,22 @@ namespace Device.HttpApi.Host.Controllers
         public async Task<int> CountAllDevicesAsync()
         {
             return await _deviceService.CountAllDevicesAsync();
+        }
+
+        [HttpGet]
+        [Route("get-most-used-devices")]
+        public async Task<List<DeviceDto>> GetMostUsedDevices(int take)
+        {
+            List<DeviceDto> mostUsedDevices = new List<DeviceDto>();
+
+            var result = await _deviceDetailService.GetMostUsedDevices(take);
+
+            foreach(var item in result)
+            {
+                mostUsedDevices.Add(await _deviceService.GetDeviceByIdAsync(item.DeviceId));
+            }
+            
+            return mostUsedDevices;
         }
 
         [HttpGet]

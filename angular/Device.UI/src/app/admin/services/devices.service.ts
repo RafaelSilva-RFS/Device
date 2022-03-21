@@ -14,7 +14,6 @@ export class DeviceService {
 
         constructor(private http: HttpClient) { }
 
-
         public GetDevicesPaged(input: GetDevicesRequest): Observable<PagedDeviceResult> {
                 
                 let queryParams = new HttpParams();
@@ -26,6 +25,14 @@ export class DeviceService {
                 queryParams = queryParams.append("maxResultCount", input.maxResultCount);
 
                 return this.http.get<PagedDeviceResult>(this.baseUrl + 'get-devices-paged-async', { params: queryParams });
+        }
+
+        public GetMostUsedDevicesPaged(take: number): Observable<Device[]> {
+                
+                let queryParams = new HttpParams();
+                queryParams = queryParams.append("take", take);
+
+                return this.http.get<Device[]>(this.baseUrl + 'get-most-used-devices', { params: queryParams });
         }
 
         public GetDeviceById(input: string): Observable<Device> {
