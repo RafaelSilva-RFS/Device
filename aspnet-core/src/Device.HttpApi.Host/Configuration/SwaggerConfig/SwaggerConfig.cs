@@ -14,7 +14,13 @@ namespace Device.HttpApi.Host.Configuration.SwaggerConfig
         {
             services.AddSwaggerGen(c =>
             {
-                c.OperationFilter<SwaggerDefaultValues>();
+                c.SwaggerDoc("v1", new OpenApiInfo()
+                {
+                    Title = "Devices API",
+                    Description = "Devices.com Application.",
+                    Contact = new OpenApiContact() { Name = "Rafael F. Silva", Email = "rfs_designer@live.com", Url = new Uri("https://rafaelsilvadev.com/") },
+                    License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
+                });
 
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
@@ -38,16 +44,12 @@ namespace Device.HttpApi.Host.Configuration.SwaggerConfig
                             }
                         },
                         new string[] {}
-                    }
+                    }              
+
+                
                 });
 
-                c.SwaggerDoc("v1", new OpenApiInfo()
-                {
-                    Title = "Devices API",
-                    Description = "Devices.com Application.",
-                    Contact = new OpenApiContact() { Name = "Rafael F. Silva", Email = "rfs_designer@live.com", Url = new Uri("https://rafaelsilvadev.com/") },
-                    License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
-                });
+                
             });
 
             return services;
@@ -62,45 +64,6 @@ namespace Device.HttpApi.Host.Configuration.SwaggerConfig
             });
 
             return app;
-        }
-    }
-
-    public class SwaggerDefaultValues : IOperationFilter
-    {
-        public void Apply(OpenApiOperation operation, OperationFilterContext context)
-        {
-            if (operation.Parameters == null)
-            {
-                return;
-            }
-
-            foreach (var parameter in operation.Parameters)
-            {
-                var description = context.ApiDescription
-                    .ParameterDescriptions
-                    .First(p => p.Name == parameter.Name);
-
-                var routeInfo = description.RouteInfo;
-
-                operation.Deprecated = OpenApiOperation.DeprecatedDefault;
-
-                if (parameter.Description == null)
-                {
-                    parameter.Description = description.ModelMetadata?.Description;
-                }
-
-                if (routeInfo == null)
-                {
-                    continue;
-                }
-
-                if (parameter.In != ParameterLocation.Path && parameter.Schema.Default == null)
-                {
-                    parameter.Schema.Default = new OpenApiString(routeInfo.DefaultValue.ToString());
-                }
-
-                parameter.Required |= !routeInfo.IsOptional;
-            }
         }
     }
 }

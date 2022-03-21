@@ -1,12 +1,10 @@
-using Device.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Device.HttpApi.Host.Configuration;
 using Device.HttpApi.Host.Configuration.SwaggerConfig;
+using Device.DomainShared.Identity;
 
 namespace Device.HttpApi.Host
 {
@@ -21,20 +19,11 @@ namespace Device.HttpApi.Host
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DeviceDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddApiConfiguration(Configuration);
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy("CorsApi",
-                    builder => builder.WithOrigins("http://localhost:4200")
-                        .AllowAnyHeader()
-                        .AllowAnyMethod());
-            });
+            services.AddJwtConfiguration(Configuration);
 
-            services.AddControllers();
-
-            services.AddSwaggerConfig();
+            services.AddSwaggerConfig();            
 
             services.ResolveDependencies();
         }
@@ -43,22 +32,7 @@ namespace Device.HttpApi.Host
         {
             app.UseSwaggerConfig();
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseHttpsRedirection();            
-
-            app.UseRouting();
-            app.UseCors("CorsApi");
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();                
-            });
+            app.UseApiConfiguration(env);
         }
     }
 }

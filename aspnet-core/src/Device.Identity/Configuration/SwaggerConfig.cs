@@ -13,8 +13,8 @@ namespace Device.Identity.Configuration
             {
                 c.SwaggerDoc("v1", new OpenApiInfo()
                 {
-                    Title = "Devices API",
-                    Description = "Devices.com Application.",
+                    Title = "Devices Authentication API",
+                    Description = "Devices.com Authentication.",
                     Contact = new OpenApiContact() { Name = "Rafael F. Silva", Email = "rfs_designer@live.com", Url = new Uri("https://rafaelsilvadev.com/") },
                     License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
                 });
