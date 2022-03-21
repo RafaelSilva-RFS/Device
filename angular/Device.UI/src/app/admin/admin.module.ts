@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgChartsModule } from 'ng2-charts';
 
 
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -16,6 +17,7 @@ import { DeviceDetailRowComponent } from './device-detail-row/device-detail-row.
 import { MyDevicesCtaComponent } from './my-devices-cta/my-devices-cta.component';
 import { StatusPipe } from "./pipes/status.pipe";
 import { DeviceIcon } from "./pipes/deviceicon.pipe";
+import { DeviceDetailChartComponent } from './device-detail-chart/device-detail-chart.component';
 
 @NgModule({
     imports: [
@@ -23,7 +25,8 @@ import { DeviceIcon } from "./pipes/deviceicon.pipe";
         AdminRoutingModule,
         PaginationModule,
         HttpClientModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgChartsModule
     ],
     providers: [
         DeviceService
@@ -36,7 +39,8 @@ import { DeviceIcon } from "./pipes/deviceicon.pipe";
         DeviceDetailRowComponent,
         MyDevicesCtaComponent,
         StatusPipe,
-        DeviceIcon
+        DeviceIcon,
+        DeviceDetailChartComponent
     ],
     exports: [
         DashboardComponent,
@@ -45,6 +49,7 @@ import { DeviceIcon } from "./pipes/deviceicon.pipe";
         DeviceDetailComponent,
         DeviceDetailRowComponent,
         MyDevicesCtaComponent,
+        DeviceDetailChartComponent,
         StatusPipe,
         DeviceIcon
     ]

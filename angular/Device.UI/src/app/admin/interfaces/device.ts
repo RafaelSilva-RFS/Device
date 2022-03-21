@@ -6,5 +6,5 @@ export interface Device {
     type: number,
     creationTime: Date,
     status: number,
-    DeviceDetail: DeviceDetail[]
+    deviceDetail: DeviceDetail[]
 }
