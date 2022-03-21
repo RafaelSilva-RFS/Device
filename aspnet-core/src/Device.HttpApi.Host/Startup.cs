@@ -32,7 +32,15 @@ namespace Device.HttpApi.Host
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DeviceDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));            
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsApi",
+                    builder => builder.WithOrigins("http://localhost:4200")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
+            });
 
             services.AddControllers();
 
@@ -46,8 +54,11 @@ namespace Device.HttpApi.Host
                     License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
                 });
             });
+
             services.AddScoped<IDevicesRepository, DevicesRepository>();
+            services.AddScoped<IDeviceDetailsRepository, DeviceDetailsRepository>();
             services.AddScoped<IDeviceService, DeviceService>();
+            services.AddScoped<IDeviceDetailService, DeviceDetailService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -66,6 +77,7 @@ namespace Device.HttpApi.Host
             });
 
             app.UseRouting();
+            app.UseCors("CorsApi");
 
             app.UseAuthorization();
 

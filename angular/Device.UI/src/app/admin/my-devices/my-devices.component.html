@@ -1,0 +1,74 @@
+<div class="container">
+
+    <div class="row align-items-center">
+        <div class="col-lg-12">
+            <div class="card mb-3 border-0 bg-warning">
+                <div class="card-body">
+                    <form (ngSubmit)="searchDevices()" [formGroup]="searchForm" class="row align-items-center">
+
+                        <div class="col-lg-12">
+                            <input type="text" class="form-control mb-3" placeholder="Search your device" formControlName="filter">
+                        </div>
+
+                        <div class="col-lg-4">
+                            <select class="form-select mb-3 mb-lg-0" formControlName="deviceType">
+                                <option value="" selected>Device type</option>
+                                <option value="0">Smartphone</option>
+                                <option value="1">Ipad</option>
+                                <option value="2">Desktop</option>
+                                <option value="3">Laptop</option>
+                                <option value="6">Television</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <select class="form-select mb-3 mb-lg-0" formControlName="sorting">
+                                <option value="" selected>Sorting</option>
+                                <option value="Name Asc">By name</option>
+                                <option value="CreationTime Desc">Newest first</option>
+                                <option value="CreationTime Asc">Oldest first</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <select class="form-select mb-3 mb-lg-0" formControlName="status">
+                                <option value="" selected>Status</option>
+                                <option value="0">Available</option>
+                                <option value="1">Offline</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-2 text-center text-lg-end">
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-outline-dark">
+                                    <i class="fa-solid fa-magnifying-glass"></i> Search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="container-fluid device-detail-box">
+
+                        <app-device-detail-row *ngFor="let item of this.devicesList" [device]="item">
+                        </app-device-detail-row>
+
+                    </div>
+                </div>
+            </div>
+
+            <pagination [totalItems]="devicesTotal" [itemsPerPage]="devicesListInput.maxResultCount" (pageChanged)="pageChanged($event)" class="mb-0 mt-3">
+            </pagination>
+
+        </div>
+    </div>
+
+</div>

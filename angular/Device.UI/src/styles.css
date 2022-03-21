@@ -1,0 +1,74 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    font-display: swap;
+}
+
+body {
+    background-color: #f3f6f9;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 22px;
+    color: #474d54;
+}
+
+
+/* Menu */
+
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show>.nav-link {
+    font-weight: bold;
+    border-bottom: 3px solid #ffc107;
+}
+
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-nav .show>.nav-link {
+    margin-top: 3px;
+}
+
+.navbar-toggler {
+    background-color: #ffffff;
+}
+
+.navbar-collapse {
+    transition: all 0.2s;
+}
+
+
+/* Pagination */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #474d54;
+    background-color: #ffc107;
+    border-color: #ffc107;
+    border-top-color: rgb(255, 193, 7);
+    border-right-color: rgb(255, 193, 7);
+    border-bottom-color: rgb(255, 193, 7);
+    border-left-color: rgb(255, 193, 7);
+}
+
+.page-link,
+.page-link:hover {
+    color: #474d54;
+}
+
+
+/* Device Box */
+
+app-device-detail-row .device-detail-row {
+    border-bottom: 1px solid #dee2e6;
+    transition: all 0.2s;
+}
+
+app-device-detail-row:last-child .device-detail-row {
+    border-bottom: none;
+}
+
+app-device-detail-row .device-detail-row:hover {
+    background: #ececec;
+}

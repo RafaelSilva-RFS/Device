@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Device.EntityFramework.Migrations
 {
     [DbContext(typeof(DeviceDbContext))]
-    [Migration("20220318011643_Create_Tbl_DeviceDetails")]
+    [Migration("20220320055236_Create_Tbl_DeviceDetails")]
     partial class Create_Tbl_DeviceDetails
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,6 +38,9 @@ namespace Device.EntityFramework.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
@@ -60,9 +63,6 @@ namespace Device.EntityFramework.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
 
                     b.Property<float>("Temperature")
                         .HasColumnType("real");

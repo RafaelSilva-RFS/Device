@@ -36,6 +36,9 @@ namespace Device.EntityFramework.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
@@ -50,6 +53,7 @@ namespace Device.EntityFramework.Migrations
                             CreationTime = new DateTime(2022, 3, 17, 8, 31, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Name = "Work Smartphone",
+                            Status = 0,
                             Type = 0
                         },
                         new
@@ -58,6 +62,7 @@ namespace Device.EntityFramework.Migrations
                             CreationTime = new DateTime(2022, 3, 17, 10, 23, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Name = "Son Ipad",
+                            Status = 0,
                             Type = 1
                         },
                         new
@@ -66,23 +71,8 @@ namespace Device.EntityFramework.Migrations
                             CreationTime = new DateTime(2022, 3, 18, 9, 4, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Name = "Home Laptop",
+                            Status = 0,
                             Type = 3
-                        },
-                        new
-                        {
-                            Id = new Guid("b2780a57-cce2-4244-9c28-5cee4c04f6b7"),
-                            CreationTime = new DateTime(2022, 3, 19, 11, 38, 0, 0, DateTimeKind.Unspecified),
-                            IsDeleted = false,
-                            Name = "Work Server",
-                            Type = 2
-                        },
-                        new
-                        {
-                            Id = new Guid("6cd66acb-33c5-43a4-8987-5ef566ed524c"),
-                            CreationTime = new DateTime(2022, 3, 19, 15, 38, 0, 0, DateTimeKind.Unspecified),
-                            IsDeleted = false,
-                            Name = "School Desktop",
-                            Type = 2
                         },
                         new
                         {
@@ -90,23 +80,17 @@ namespace Device.EntityFramework.Migrations
                             CreationTime = new DateTime(2022, 3, 19, 17, 38, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Name = "Hall Television",
+                            Status = 0,
                             Type = 6
                         },
                         new
                         {
-                            Id = new Guid("4274be17-8e8e-4012-8be4-978579607f3a"),
-                            CreationTime = new DateTime(2022, 3, 20, 10, 23, 0, 0, DateTimeKind.Unspecified),
+                            Id = new Guid("b2780a57-cce2-4244-9c28-5cee4c04f6b7"),
+                            CreationTime = new DateTime(2022, 3, 19, 11, 38, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
-                            Name = "Mom Ipad",
-                            Type = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("46c2ae34-db80-40d1-ac73-d9b01eaf511c"),
-                            CreationTime = new DateTime(2022, 3, 21, 9, 4, 0, 0, DateTimeKind.Unspecified),
-                            IsDeleted = false,
-                            Name = "Daughter Laptop",
-                            Type = 3
+                            Name = "Work Server",
+                            Status = 0,
+                            Type = 2
                         },
                         new
                         {
@@ -114,14 +98,16 @@ namespace Device.EntityFramework.Migrations
                             CreationTime = new DateTime(2022, 3, 21, 11, 38, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Name = "Bedroom TV",
+                            Status = 0,
                             Type = 6
                         },
                         new
                         {
                             Id = new Guid("9bea121f-ae8e-4db3-b433-419596e573eb"),
-                            CreationTime = new DateTime(2022, 3, 23, 15, 38, 0, 0, DateTimeKind.Unspecified),
+                            CreationTime = new DateTime(2022, 3, 22, 15, 38, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Name = "Mom Smartphone",
+                            Status = 0,
                             Type = 0
                         });
                 });
@@ -141,9 +127,6 @@ namespace Device.EntityFramework.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
                     b.Property<float>("Temperature")
                         .HasColumnType("real");
 
@@ -155,6 +138,197 @@ namespace Device.EntityFramework.Migrations
                     b.HasIndex("DeviceId");
 
                     b.ToTable("DeviceDetails");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("a6114d42-3a47-4885-9191-60a1ca6d2d33"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 30, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("7c00b09f-4562-4e2f-b95d-edd6e2240b96"),
+                            IsDeleted = false,
+                            Temperature = 30.458f,
+                            Usage = 5437547f
+                        },
+                        new
+                        {
+                            Id = new Guid("d777861f-92f3-4688-b389-ec6ed33dd86b"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 40, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("7c00b09f-4562-4e2f-b95d-edd6e2240b96"),
+                            IsDeleted = false,
+                            Temperature = 28.458f,
+                            Usage = 5423818f
+                        },
+                        new
+                        {
+                            Id = new Guid("c8975a67-e770-4a3a-bf35-0c205e99ba2d"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 50, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("7c00b09f-4562-4e2f-b95d-edd6e2240b96"),
+                            IsDeleted = false,
+                            Temperature = 32.5458f,
+                            Usage = 7564754f
+                        },
+                        new
+                        {
+                            Id = new Guid("38896a30-53dd-4936-8ffd-1347730867ae"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 30, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("98ec6ea5-d591-47f3-9f36-c1c9f2a3316c"),
+                            IsDeleted = false,
+                            Temperature = 29.4458f,
+                            Usage = 236525f
+                        },
+                        new
+                        {
+                            Id = new Guid("08f6848c-27a2-41a9-a587-890d7512acb9"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 40, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("98ec6ea5-d591-47f3-9f36-c1c9f2a3316c"),
+                            IsDeleted = false,
+                            Temperature = 34.5658f,
+                            Usage = 52346248f
+                        },
+                        new
+                        {
+                            Id = new Guid("d33b0f4d-6df4-473d-a2e1-0f290bd0a80c"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 50, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("98ec6ea5-d591-47f3-9f36-c1c9f2a3316c"),
+                            IsDeleted = false,
+                            Temperature = 35.458f,
+                            Usage = 6345532f
+                        },
+                        new
+                        {
+                            Id = new Guid("36afe48d-679e-4044-8035-36a33216f031"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 30, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("0e05ba9d-a84f-48da-bd1d-19eaabfe1590"),
+                            IsDeleted = false,
+                            Temperature = 31.458f,
+                            Usage = 262623f
+                        },
+                        new
+                        {
+                            Id = new Guid("4ec35344-5deb-4393-9403-38bb4e751c64"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 40, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("0e05ba9d-a84f-48da-bd1d-19eaabfe1590"),
+                            IsDeleted = false,
+                            Temperature = 28.458f,
+                            Usage = 145125f
+                        },
+                        new
+                        {
+                            Id = new Guid("4eaeaf69-0157-4252-b980-1440fb347068"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 50, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("0e05ba9d-a84f-48da-bd1d-19eaabfe1590"),
+                            IsDeleted = false,
+                            Temperature = 30.458f,
+                            Usage = 43633f
+                        },
+                        new
+                        {
+                            Id = new Guid("36cb705c-acf6-438f-9f69-324a13a0e56a"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 30, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("7fa37ac2-9edf-469f-8d2a-535aab49b00e"),
+                            IsDeleted = false,
+                            Temperature = 31.458f,
+                            Usage = 367357f
+                        },
+                        new
+                        {
+                            Id = new Guid("65cc08bd-7fe3-4067-b659-7de85747571c"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 40, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("7fa37ac2-9edf-469f-8d2a-535aab49b00e"),
+                            IsDeleted = false,
+                            Temperature = 32.38f,
+                            Usage = 7363445f
+                        },
+                        new
+                        {
+                            Id = new Guid("93dee4b7-172a-4016-9e33-709b2af32153"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 50, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("7fa37ac2-9edf-469f-8d2a-535aab49b00e"),
+                            IsDeleted = false,
+                            Temperature = 30.458f,
+                            Usage = 2652355f
+                        },
+                        new
+                        {
+                            Id = new Guid("fb898af6-b59c-42b7-a861-220ec1b683a0"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 30, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("b2780a57-cce2-4244-9c28-5cee4c04f6b7"),
+                            IsDeleted = false,
+                            Temperature = 29.458f,
+                            Usage = 451552f
+                        },
+                        new
+                        {
+                            Id = new Guid("f1916e35-0497-4c32-95f4-64bd41a9f6fb"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 40, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("b2780a57-cce2-4244-9c28-5cee4c04f6b7"),
+                            IsDeleted = false,
+                            Temperature = 30.658f,
+                            Usage = 2352352f
+                        },
+                        new
+                        {
+                            Id = new Guid("433b8da2-7aee-4fc6-a580-7da212c0f58d"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 50, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("b2780a57-cce2-4244-9c28-5cee4c04f6b7"),
+                            IsDeleted = false,
+                            Temperature = 30.748f,
+                            Usage = 32532524f
+                        },
+                        new
+                        {
+                            Id = new Guid("d123c91e-36ff-463f-a33d-7948f5549439"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 30, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("edd25796-460b-4da4-8340-4a283024d506"),
+                            IsDeleted = false,
+                            Temperature = 30.458f,
+                            Usage = 451552f
+                        },
+                        new
+                        {
+                            Id = new Guid("134c9061-afa3-4fa8-97e6-6a5d876000b0"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 40, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("edd25796-460b-4da4-8340-4a283024d506"),
+                            IsDeleted = false,
+                            Temperature = 33.458f,
+                            Usage = 235235f
+                        },
+                        new
+                        {
+                            Id = new Guid("f6c00033-0301-42f1-896e-532ca2585873"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 50, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("edd25796-460b-4da4-8340-4a283024d506"),
+                            IsDeleted = false,
+                            Temperature = 30.358f,
+                            Usage = 23523f
+                        },
+                        new
+                        {
+                            Id = new Guid("ee964760-1c37-47a2-814b-431b775eef4a"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 30, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("9bea121f-ae8e-4db3-b433-419596e573eb"),
+                            IsDeleted = false,
+                            Temperature = 30.458f,
+                            Usage = 3463443f
+                        },
+                        new
+                        {
+                            Id = new Guid("9ffb6f9f-9b8c-4e4b-aeda-4653b8b4df53"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 40, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("9bea121f-ae8e-4db3-b433-419596e573eb"),
+                            IsDeleted = false,
+                            Temperature = 32.458f,
+                            Usage = 321532f
+                        },
+                        new
+                        {
+                            Id = new Guid("eeff1c90-d32e-4303-8744-d139c219666c"),
+                            CreationTime = new DateTime(2022, 3, 23, 8, 50, 0, 0, DateTimeKind.Unspecified),
+                            DeviceId = new Guid("9bea121f-ae8e-4db3-b433-419596e573eb"),
+                            IsDeleted = false,
+                            Temperature = 31.98f,
+                            Usage = 23523524f
+                        });
                 });
 
             modelBuilder.Entity("Device.Domain.Device.Entities.DeviceDetails", b =>

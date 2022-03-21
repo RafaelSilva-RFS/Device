@@ -1,0 +1,22 @@
+<div class="row device-detail-row" *ngIf="this.device == null || this.device.id == null">
+    <div class="col-12 text-center">
+        <div class="fa-2x">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </div>
+    </div>
+</div>
+
+<div class="row align-items-center py-3 py-lg-2 device-detail-row" *ngIf="this.device != null || this.device.id != null">
+    <div class="text-center" [ngClass]="size == 'sm' ? 'col-lg-2' : 'col-lg-1'">
+        <i class="fa-solid fa-2x" [ngClass]="this.device.type | deviceicon"></i>
+    </div>
+    <div class="col-12 col-lg text-center text-lg-start">
+        {{ this.device.name }}
+        <p class="mb-2 mb-lg-0" [innerHTML]="this.device.status | status"></p>
+    </div>
+    <div class="text-center text-lg-end" [ngClass]="size == 'sm' ? 'col-lg-3' : 'col-lg-2'">
+        <a [routerLink]="['/devices/detail/', this.device.id]" class="btn btn-outline-dark mb-2 mb-lg-0" [ngClass]="size == 'sm' ? 'btn-sm' : ''">
+            Details
+        </a>
+    </div>
+</div>
