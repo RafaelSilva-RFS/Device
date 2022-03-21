@@ -37,8 +37,6 @@ export class DeviceDetailComponent implements OnInit {
       });
 
     this.getDevice();
-
-    console.log(this.device);
   }
 
   getDevice() {

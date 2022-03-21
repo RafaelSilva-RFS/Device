@@ -27,8 +27,6 @@ export class DeviceDetailChartComponent implements OnInit {
   public lineChartData: ChartConfiguration['data'];
 
   ngOnInit(): void {
-    console.log(this.deviceDetails);
-
     this.temperatureMapped = this.deviceDetails.map(item => {
       return item.temperature
     });
@@ -40,10 +38,6 @@ export class DeviceDetailChartComponent implements OnInit {
     this.dateMapped = this.deviceDetails.map(item => {
       return formatDate(item.creationTime, 'MM/dd/yyyy HH:mm', 'en-US')
     });
-
-    console.log(this.temperatureMapped);
-    console.log(this.dataUsageMapped);
-    console.log(this.dateMapped);
 
     this.lineChartData = {
       datasets: [
@@ -85,7 +79,6 @@ export class DeviceDetailChartComponent implements OnInit {
       }
     },
     scales: {
-      // We use this empty structure as a placeholder for dynamic theming.
       x: {},
       'y-axis-0':
         {
