@@ -3,12 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DeviceDetailComponent } from './device-detail/device-detail.component';
+import { HomeAppComponent } from './home.app.component';
 import { MyDevicesComponent } from './my-devices/my-devices.component';
 
 const adminRouterConfig: Routes = [
-    { path: '', component: DashboardComponent },
-    { path: 'devices', component: MyDevicesComponent },
-    { path: 'devices/detail/:id', component: DeviceDetailComponent }
+    {
+        path: '', component: HomeAppComponent,
+        children: [
+            { path: '', component: DashboardComponent },
+            { path: 'devices', component: MyDevicesComponent },
+            { path: 'devices/detail/:id', component: DeviceDetailComponent }
+        ]
+    }
 ];
 
 @NgModule({
