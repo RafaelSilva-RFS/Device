@@ -12,6 +12,16 @@ namespace Device.Identity.Configuration
         {
             services.AddControllers();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsApi",
+                    builder =>
+                        builder
+                            .AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader());
+            });
+
             return services;
         }
 
@@ -25,6 +35,8 @@ namespace Device.Identity.Configuration
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("CorsApi");
 
             app.UseAuthConfiguration();
 

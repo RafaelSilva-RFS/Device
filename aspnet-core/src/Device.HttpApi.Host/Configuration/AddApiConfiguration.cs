@@ -20,7 +20,7 @@ namespace Device.HttpApi.Host.Configuration
 
             services.AddCors(options =>
             {
-                options.AddPolicy("Total",
+                options.AddPolicy("CorsApi",
                     builder =>
                         builder
                             .AllowAnyOrigin()
