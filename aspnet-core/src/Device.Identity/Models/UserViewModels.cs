@@ -11,10 +11,10 @@ namespace Device.Identity.Models
 
         [Required(ErrorMessage = "The field {0} is mandatory")]
         [StringLength(100, ErrorMessage = "Field {0} must be between {2} and {1} characters", MinimumLength = 6)]
-        public string Senha { get; set; }
+        public string Password { get; set; }
 
-        [Compare("Senha", ErrorMessage = "Passwords do not match.")]
-        public string SenhaConfirmacao { get; set; }
+        [Compare("Password", ErrorMessage = "Passwords do not match.")]
+        public string PasswordConfirmation { get; set; }
     }
 
     public class UserLogin
@@ -25,7 +25,7 @@ namespace Device.Identity.Models
 
         [Required(ErrorMessage = "The field {0} is mandatory")]
         [StringLength(100, ErrorMessage = "Field {0} must be between {2} and {1} characters", MinimumLength = 6)]
-        public string Senha { get; set; }
+        public string Password { get; set; }
     }
 
     public class UserResponseLogin

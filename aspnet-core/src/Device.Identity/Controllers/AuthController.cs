@@ -43,7 +43,7 @@ namespace Device.Identity.Controllers
                 EmailConfirmed = true
             };
 
-            var result = await _userManager.CreateAsync(user, usuarioRegistro.Senha);
+            var result = await _userManager.CreateAsync(user, usuarioRegistro.Password);
 
             if (result.Succeeded)
             {
@@ -63,7 +63,7 @@ namespace Device.Identity.Controllers
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            var result = await _signInManager.PasswordSignInAsync(usuarioLogin.Email, usuarioLogin.Senha,
+            var result = await _signInManager.PasswordSignInAsync(usuarioLogin.Email, usuarioLogin.Password,
                 false, true);
 
             if (result.Succeeded)
