@@ -21,11 +21,19 @@ export class DeviceService {
                 queryParams = queryParams.append("filter", input.filter);
                 queryParams = queryParams.append("sorting", input.sorting);
                 queryParams = queryParams.append("status", input.status);
-                queryParams = queryParams.append("deviceType", input.deviceType);
+                queryParams = queryParams.append("deviceType", input.deviceType == null ? "" : input.deviceType);
                 queryParams = queryParams.append("pageNumber", input.pageNumber);
                 queryParams = queryParams.append("maxResultCount", input.maxResultCount);
 
                 return this.http.get<PagedDeviceResult>(this.baseUrl + 'get-devices-paged-async', { params: queryParams });
+        }
+
+        public GetDeviceById(input: string): Observable<Device> {
+                
+                let queryParams = new HttpParams();
+                queryParams = queryParams.append("id", input);
+
+                return this.http.get<Device>(this.baseUrl + 'get-device-by-id', { params: queryParams });
         }
 
         public CountDevices(input: CountDevicesRequest): Observable<any[]> {

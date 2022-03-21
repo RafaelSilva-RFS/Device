@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Device } from '../interfaces/device';
+import { GetDevicesRequest } from '../interfaces/get-devices-request';
+import { PagedDeviceResult } from '../interfaces/paged-device-result';
+import { DeviceService } from '../services/devices.service';
 
 @Component({
   selector: 'app-device-detail',
@@ -7,15 +11,51 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DeviceDetailComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private deviceService: DeviceService) { 
+                this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+              }
 
-  teste: any;
+  idDeviceParam: string;
+  device: Device;
+  relatedDevices: PagedDeviceResult;
+
+  relatedDevicesListInput: GetDevicesRequest = {
+    filter: "",
+    sorting: "CreationTime Desc",
+    status: "",
+    deviceType: null,
+    pageNumber: 1,
+    maxResultCount: 5
+  };
 
   ngOnInit(): void {
     this.route.params
       .subscribe(params => {
-        this.teste = params['id'];
+        this.idDeviceParam = params['id'];
       });
+
+    this.getDevice();
+  }
+
+  getDevice() {
+    this.deviceService.GetDeviceById(this.idDeviceParam)
+      .subscribe(
+        result => {
+          this.device = result;
+
+          this.relatedDevicesListInput.deviceType = result.type;
+
+          this.deviceService.GetDevicesPaged(this.relatedDevicesListInput)
+            .subscribe(
+              relatedResult => {
+                this.relatedDevices = relatedResult;
+              }
+            )
+
+        }
+      );
   }
 
 }

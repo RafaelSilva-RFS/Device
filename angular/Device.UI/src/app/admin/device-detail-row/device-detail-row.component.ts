@@ -13,4 +13,7 @@ export class DeviceDetailRowComponent {
   @Input() 
   device: Device;
 
+  @Input('size') 
+  size: string;
+
 }

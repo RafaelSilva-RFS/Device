@@ -2,7 +2,7 @@ export interface GetDevicesRequest {
     filter: string, 
     sorting: string, 
     status: string, 
-    deviceType: string,
+    deviceType: number,
     pageNumber: number,
     maxResultCount: number
 }

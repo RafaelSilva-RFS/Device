@@ -24,7 +24,7 @@ export class MyDevicesComponent implements OnInit {
     filter: "",
     sorting: "CreationTime Desc",
     status: "",
-    deviceType: "",
+    deviceType: null,
     pageNumber: 1,
     maxResultCount: 5
   };
@@ -41,7 +41,7 @@ export class MyDevicesComponent implements OnInit {
   }
 
   searchDevices() {
-    this.devicesListInput = Object.assign({}, this.devicesListInput, this.searchForm.value);
+    this.devicesListInput = Object.assign({}, this.devicesListInput, this.searchForm.value);        
     this.getPagedDevices();
   }
 
