@@ -4,15 +4,15 @@ import { LocalStorageUtils } from 'src/app/utils/localstorage';
 
 
 @Injectable()
-export class AccountGuard implements CanActivate {
+export class AuthtGuard implements CanActivate {
     
     localStorageUtils = new LocalStorageUtils();
 
     constructor(private router: Router){}
 
     canActivate() {
-        if(this.localStorageUtils.obterTokenUsuario()){
-            this.router.navigate(['']);
+        if(!this.localStorageUtils.obterTokenUsuario()){
+            this.router.navigate(['/account/login']);
         }
 
         return true;

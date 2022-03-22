@@ -16,7 +16,7 @@ export abstract class BaseService {
     }
 
     protected extractData(response: any) {
-        return response.data || {};
+        return response || {};
     }
 
     protected serviceError(response: Response | any) {

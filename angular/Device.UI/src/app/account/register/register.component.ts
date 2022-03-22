@@ -103,7 +103,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   }
 
   processarFalha(fail: any){
-    this.errors = fail.error.errors;
+    this.errors = ['Try another email and password.'];
     this.toastr.error('Ocorreu um erro!', 'Opa :(');
   }
 

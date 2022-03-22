@@ -10,7 +10,7 @@ namespace Device.Identity.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "The field {0} is mandatory")]
-        [StringLength(100, ErrorMessage = "Field {0} must be between {2} and {1} characters", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Field {0} must be between {2} and {1} characters", MinimumLength = 3)]
         public string Password { get; set; }
 
         [Compare("Password", ErrorMessage = "Passwords do not match.")]
@@ -24,7 +24,7 @@ namespace Device.Identity.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "The field {0} is mandatory")]
-        [StringLength(100, ErrorMessage = "Field {0} must be between {2} and {1} characters", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Field {0} must be between {2} and {1} characters", MinimumLength = 3)]
         public string Password { get; set; }
     }
 

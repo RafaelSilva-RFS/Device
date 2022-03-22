@@ -3,16 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccountAppComponent } from './account.app.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { AccountGuard } from './services/account.guard';
 // import { ContaGuard } from './services/conta.guard';
 
 const accountRouterConfig: Routes = [
     {
         path: '', component: AccountAppComponent,
         children: [
-            // { path: 'cadastro', component: CadastroComponent, canActivate: [ContaGuard], canDeactivate: [ContaGuard] },
-            // { path: 'login', component: LoginComponent, canActivate: [ContaGuard] }
-            { path: 'login', component: LoginComponent },
-            { path: 'register', component: RegisterComponent },
+            { path: 'login', component: LoginComponent, canActivate: [AccountGuard] }
         ]
     }
 ];

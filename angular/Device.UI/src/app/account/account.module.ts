@@ -10,6 +10,7 @@ import { AccountAppComponent } from './account.app.component';
 
 import { AccountRoutingModule } from './account.route';
 import { AccountService } from './services/account.service';
+import { AccountGuard } from './services/account.guard';
 
 // import { ContaGuard } from './services/conta.guard';
 
@@ -24,7 +25,7 @@ import { AccountService } from './services/account.service';
   ],
   providers: [
     AccountService,
-    // ContaGuard
+    AccountGuard
   ],
   declarations: [
     AccountAppComponent,

@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
   errors: any[] = [];
   loginForm: FormGroup;
   usuario: User;
+  loading: Boolean = false;
 
   validationMessages: ValidationMessages;
   genericValidator: GenericValidator;
@@ -50,7 +51,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      email: ['admin@device.com', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
   }
@@ -81,6 +82,8 @@ export class LoginComponent implements OnInit {
     this.loginForm.reset();
     this.errors = [];
 
+    this.loading = true;
+
     this.AccountService.LocalStorage.salvarDadosLocaisUsuario(response);
 
     let toast = this.toastr.success('Login Successful!', 'Welcome!');
@@ -92,7 +95,8 @@ export class LoginComponent implements OnInit {
   }
 
   processarFalha(fail: any){
-    this.errors = fail.error.errors;
+    // this.errors = fail.error.errors;
+    this.errors = ['Use the credentials bellow.'];
     this.toastr.error('An error has occurred!', 'Oops :(');
   }
 }

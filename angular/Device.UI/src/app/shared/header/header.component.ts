@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
+import { LocalStorageUtils } from 'src/app/utils/localstorage';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +9,10 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class HeaderComponent {
 
+  localStorageUtils = new LocalStorageUtils();
   isCollapsed = true;
+
+  constructor(private router: Router) {  }
 
   nav: Nav[] = [
     {
@@ -21,6 +26,11 @@ export class HeaderComponent {
       exact: false
     }
   ];
+
+  logout() {
+    this.localStorageUtils.limparDadosLocaisUsuario();
+    this.router.navigate(['/account/login']);
+  }
 }
 
 interface Nav {

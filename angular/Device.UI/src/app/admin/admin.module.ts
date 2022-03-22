@@ -21,6 +21,7 @@ import { DeviceDetailChartComponent } from './device-detail-chart/device-detail-
 import { HomeAppComponent } from "./home.app.component";
 import { FooterComponent } from "../shared/footer/footer.component";
 import { HeaderComponent } from "../shared/header/header.component";
+import { AuthtGuard } from "./services/auth.guard";
 
 @NgModule({
     imports: [
@@ -32,7 +33,8 @@ import { HeaderComponent } from "../shared/header/header.component";
         NgChartsModule
     ],
     providers: [
-        DeviceService
+        DeviceService,
+        AuthtGuard
     ],
     declarations: [
         HomeAppComponent,
