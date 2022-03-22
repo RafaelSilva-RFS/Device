@@ -1,0 +1,89 @@
+<div class="position-fixed top-0" *ngIf="this.loading" style="left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,.2); z-index: 99;">
+    <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+            <div class="fa-4x text-warning"><i class="fa-solid fa-circle-notch fa-spin"></i></div>
+        </div>
+    </div>
+</div>
+
+<section style="background: url('/assets/images/bg-account.jpg'); background-size: cover;">
+    <div class="container" style="height: 100vh;">
+        <div class="row justify-content-center align-items-center h-100">
+
+            <div class="col-lg-5">
+                <div class="bg-warning p-4" style="border-radius: .6rem">
+
+                    <div class="row">
+                        <div class="col-12 text-center mb-4">
+                            <img src="/assets/images/Devices-Logo.svg" alt="Devices logo" style="max-width: 300px; width: 100%;">
+                        </div>
+                    </div>
+
+
+
+                    <form novalidate (ngSubmit)="login()" [formGroup]="loginForm" class="row">
+
+                        <div class="col-12">
+                            <h4>Login</h4>
+                            <hr>
+
+                            <div class="alert alert-danger" *ngIf="errors.length > 0">
+                                <p class="fw-bold mb-0" id="msgRetorno">Oops! Something went wrong:</p>
+                                <ul class="mb-0">
+                                    <li *ngFor="let error of errors">{{ error }}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="alert alert-success py-2">
+                                <h3 class="text-center fw-bold">ATTENTION!</h3>
+                                <p class="mb-0">
+                                    Login: <strong>admin@device.com</strong>
+                                    <br>Password: <strong>1q2w3E*</strong>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-group mb-3">
+                                <label class="control-label">Email *</label>
+                                <input class="form-control" id="email" type="text" placeholder="E-mail *" formControlName="email" [ngClass]="{'is-invalid': displayMessage?.['email'] }" />
+                                <span class="text-danger" *ngIf="displayMessage?.['email']">
+                                    <p [innerHTML]="displayMessage?.['email']"></p>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 mb-2">
+                            <div class="form-group mb-3">
+                                <label class="control-label">Password *</label>
+                                <input class="form-control" id="password" type="password" placeholder="Password *" formControlName="password" [ngClass]="{'is-invalid': displayMessage?.['password'] }" />
+                                <span class="text-danger" *ngIf="displayMessage?.['password']">
+                                    <p [innerHTML]="displayMessage?.['password']"></p>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-6 mb-2">
+                            <div class="form-group text-start">
+                                <a href="/account/register" class="btn btn-outline-dark" id="Login">Register</a>
+                            </div>
+                        </div> -->
+
+                        <div class="col-12 mb-2">
+                            <div class="form-group text-end">
+                                <button class="btn btn-dark" id="Login" [disabled]="!loginForm.valid" type="submit">Login</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>

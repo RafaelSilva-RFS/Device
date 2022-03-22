@@ -1,12 +1,11 @@
 ﻿using Device.Application.Contracts;
 using Device.Application.Contracts.Devices;
 using Device.Application.Contracts.Devices.Dtos;
-using Device.Application.Device;
+using Device.DomainShared.Controllers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -14,8 +13,8 @@ namespace Device.HttpApi.Host.Controllers
 {
     [EnableCors("CorsApi")]
     [Route("api/v1/")]
-    [ApiController]
-    public class DevicesController : ControllerBase
+    [Authorize]
+    public class DevicesController : MainController
     {
         private readonly IDeviceService _deviceService;
         private readonly IDeviceDetailService _deviceDetailService;

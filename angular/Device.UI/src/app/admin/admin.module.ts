@@ -18,6 +18,10 @@ import { MyDevicesCtaComponent } from './my-devices-cta/my-devices-cta.component
 import { StatusPipe } from "./pipes/status.pipe";
 import { DeviceIcon } from "./pipes/deviceicon.pipe";
 import { DeviceDetailChartComponent } from './device-detail-chart/device-detail-chart.component';
+import { HomeAppComponent } from "./home.app.component";
+import { FooterComponent } from "../shared/footer/footer.component";
+import { HeaderComponent } from "../shared/header/header.component";
+import { AuthtGuard } from "./services/auth.guard";
 
 @NgModule({
     imports: [
@@ -29,9 +33,13 @@ import { DeviceDetailChartComponent } from './device-detail-chart/device-detail-
         NgChartsModule
     ],
     providers: [
-        DeviceService
+        DeviceService,
+        AuthtGuard
     ],
     declarations: [
+        HomeAppComponent,
+        FooterComponent,
+        HeaderComponent,
         DashboardComponent,
         MyDevicesComponent,
         CardDashboardComponent,
@@ -43,6 +51,9 @@ import { DeviceDetailChartComponent } from './device-detail-chart/device-detail-
         DeviceDetailChartComponent
     ],
     exports: [
+        HomeAppComponent,
+        FooterComponent,
+        HeaderComponent,
         DashboardComponent,
         MyDevicesComponent,
         CardDashboardComponent,
