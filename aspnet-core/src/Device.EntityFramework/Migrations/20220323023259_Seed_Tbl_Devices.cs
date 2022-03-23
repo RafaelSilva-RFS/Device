@@ -18,7 +18,10 @@ namespace Device.EntityFramework.Migrations
                     { new Guid("7fa37ac2-9edf-469f-8d2a-535aab49b00e"), new DateTime(2022, 3, 19, 17, 38, 0, 0, DateTimeKind.Unspecified), false, "Hall Television", 0, 6 },
                     { new Guid("b2780a57-cce2-4244-9c28-5cee4c04f6b7"), new DateTime(2022, 3, 19, 11, 38, 0, 0, DateTimeKind.Unspecified), false, "Work Server", 0, 2 },
                     { new Guid("edd25796-460b-4da4-8340-4a283024d506"), new DateTime(2022, 3, 21, 11, 38, 0, 0, DateTimeKind.Unspecified), false, "Bedroom TV", 0, 6 },
-                    { new Guid("9bea121f-ae8e-4db3-b433-419596e573eb"), new DateTime(2022, 3, 22, 15, 38, 0, 0, DateTimeKind.Unspecified), false, "Mom Smartphone", 0, 0 }
+                    { new Guid("9bea121f-ae8e-4db3-b433-419596e573eb"), new DateTime(2022, 3, 22, 15, 38, 0, 0, DateTimeKind.Unspecified), false, "Mom Smartphone", 0, 0 },
+                    { new Guid("5b9eda9d-d878-4b6d-b041-11e725bcccd4"), new DateTime(2022, 3, 19, 11, 38, 0, 0, DateTimeKind.Unspecified), false, "Work Hall Desktop", 1, 2 },
+                    { new Guid("cde3b44e-9603-4fc4-89b4-a027c3aab5eb"), new DateTime(2022, 3, 21, 11, 38, 0, 0, DateTimeKind.Unspecified), false, "Work Hall TV", 0, 6 },
+                    { new Guid("8f458b6f-40d7-48ac-9277-6727c45cfd22"), new DateTime(2022, 3, 22, 15, 38, 0, 0, DateTimeKind.Unspecified), false, "Work Smartphone", 0, 0 }
                 });
         }
 
@@ -32,12 +35,22 @@ namespace Device.EntityFramework.Migrations
             migrationBuilder.DeleteData(
                 table: "Devices",
                 keyColumn: "Id",
+                keyValue: new Guid("5b9eda9d-d878-4b6d-b041-11e725bcccd4"));
+
+            migrationBuilder.DeleteData(
+                table: "Devices",
+                keyColumn: "Id",
                 keyValue: new Guid("7c00b09f-4562-4e2f-b95d-edd6e2240b96"));
 
             migrationBuilder.DeleteData(
                 table: "Devices",
                 keyColumn: "Id",
                 keyValue: new Guid("7fa37ac2-9edf-469f-8d2a-535aab49b00e"));
+
+            migrationBuilder.DeleteData(
+                table: "Devices",
+                keyColumn: "Id",
+                keyValue: new Guid("8f458b6f-40d7-48ac-9277-6727c45cfd22"));
 
             migrationBuilder.DeleteData(
                 table: "Devices",
@@ -53,6 +66,11 @@ namespace Device.EntityFramework.Migrations
                 table: "Devices",
                 keyColumn: "Id",
                 keyValue: new Guid("b2780a57-cce2-4244-9c28-5cee4c04f6b7"));
+
+            migrationBuilder.DeleteData(
+                table: "Devices",
+                keyColumn: "Id",
+                keyValue: new Guid("cde3b44e-9603-4fc4-89b4-a027c3aab5eb"));
 
             migrationBuilder.DeleteData(
                 table: "Devices",

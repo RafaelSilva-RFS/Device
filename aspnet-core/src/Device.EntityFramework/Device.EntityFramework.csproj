@@ -27,12 +27,16 @@
     <Compile Remove="Migrations\20220319142506_test.Designer.cs" />
     <Compile Remove="Migrations\20220320055316_Seed_Tbl_Devices.cs" />
     <Compile Remove="Migrations\20220320055316_Seed_Tbl_Devices.Designer.cs" />
+    <Compile Remove="Migrations\20220320055539_Seed_Tbl_Devices.cs" />
+    <Compile Remove="Migrations\20220320055539_Seed_Tbl_Devices.Designer.cs" />
     <Compile Remove="Migrations\20220320060539_Seed_Tbl_DeviceDetails.cs" />
     <Compile Remove="Migrations\20220320060539_Seed_Tbl_DeviceDetails.Designer.cs" />
     <Compile Remove="Migrations\20220320060735_Seed_Tbl_DeviceDetails.cs" />
     <Compile Remove="Migrations\20220320060735_Seed_Tbl_DeviceDetails.Designer.cs" />
     <Compile Remove="Migrations\20220320060948_Seed_Tbl_DeviceDetails.cs" />
     <Compile Remove="Migrations\20220320060948_Seed_Tbl_DeviceDetails.Designer.cs" />
+    <Compile Remove="Migrations\20220320061249_Seed_Tbl_DeviceDetails.cs" />
+    <Compile Remove="Migrations\20220320061249_Seed_Tbl_DeviceDetails.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

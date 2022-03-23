@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Device.EntityFramework.Migrations
 {
     [DbContext(typeof(DeviceDbContext))]
-    [Migration("20220320055539_Seed_Tbl_Devices")]
+    [Migration("20220323023259_Seed_Tbl_Devices")]
     partial class Seed_Tbl_Devices
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -111,6 +111,33 @@ namespace Device.EntityFramework.Migrations
                             Name = "Mom Smartphone",
                             Status = 0,
                             Type = 0
+                        },
+                        new
+                        {
+                            Id = new Guid("5b9eda9d-d878-4b6d-b041-11e725bcccd4"),
+                            CreationTime = new DateTime(2022, 3, 19, 11, 38, 0, 0, DateTimeKind.Unspecified),
+                            IsDeleted = false,
+                            Name = "Work Hall Desktop",
+                            Status = 1,
+                            Type = 2
+                        },
+                        new
+                        {
+                            Id = new Guid("cde3b44e-9603-4fc4-89b4-a027c3aab5eb"),
+                            CreationTime = new DateTime(2022, 3, 21, 11, 38, 0, 0, DateTimeKind.Unspecified),
+                            IsDeleted = false,
+                            Name = "Work Hall TV",
+                            Status = 0,
+                            Type = 6
+                        },
+                        new
+                        {
+                            Id = new Guid("8f458b6f-40d7-48ac-9277-6727c45cfd22"),
+                            CreationTime = new DateTime(2022, 3, 22, 15, 38, 0, 0, DateTimeKind.Unspecified),
+                            IsDeleted = false,
+                            Name = "Work Smartphone",
+                            Status = 0,
+                            Type = 0
                         });
                 });
 
@@ -145,7 +172,7 @@ namespace Device.EntityFramework.Migrations
             modelBuilder.Entity("Device.Domain.Device.Entities.DeviceDetails", b =>
                 {
                     b.HasOne("Device.Domain.Device.Entities.Device", "Device")
-                        .WithMany()
+                        .WithMany("DeviceDetails")
                         .HasForeignKey("DeviceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

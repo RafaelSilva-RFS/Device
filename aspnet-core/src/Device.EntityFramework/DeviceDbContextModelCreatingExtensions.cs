@@ -67,6 +67,30 @@ namespace Device.EntityFramework
                     Type = DeviceType.Smartphone,
                     Status = DeviceStatus.Available,
                     CreationTime = DateTime.ParseExact("03/22/2022 15:38", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
+                new DeviceDomain.Device
+                {
+                    Id = new Guid("5b9eda9d-d878-4b6d-b041-11e725bcccd4"),
+                    Name = "Work Hall Desktop",
+                    Type = DeviceType.Desktop,
+                    Status = DeviceStatus.Offline,
+                    CreationTime = DateTime.ParseExact("03/19/2022 11:38", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
+                new DeviceDomain.Device
+                {
+                    Id = new Guid("cde3b44e-9603-4fc4-89b4-a027c3aab5eb"),
+                    Name = "Work Hall TV",
+                    Type = DeviceType.Television,
+                    Status = DeviceStatus.Available,
+                    CreationTime = DateTime.ParseExact("03/21/2022 11:38", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
+                new DeviceDomain.Device
+                {
+                    Id = new Guid("8f458b6f-40d7-48ac-9277-6727c45cfd22"),
+                    Name = "Work Smartphone",
+                    Type = DeviceType.Smartphone,
+                    Status = DeviceStatus.Available,
+                    CreationTime = DateTime.ParseExact("03/22/2022 15:38", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
                 }
             );
             #endregion
@@ -173,80 +197,155 @@ namespace Device.EntityFramework
                     CreationTime = DateTime.ParseExact("03/23/2022 08:50", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
                 },
 
-            new DeviceDomain.DeviceDetails
-            {
-                Id = Guid.NewGuid(),
-                DeviceId = new Guid("b2780a57-cce2-4244-9c28-5cee4c04f6b7"),
-                Temperature = 29.458f,
-                Usage = 451552,
-                CreationTime = DateTime.ParseExact("03/23/2022 08:30", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
-            },
-            new DeviceDomain.DeviceDetails
-            {
-                Id = Guid.NewGuid(),
-                DeviceId = new Guid("b2780a57-cce2-4244-9c28-5cee4c04f6b7"),
-                Temperature = 30.658f,
-                Usage = 2352352,
-                CreationTime = DateTime.ParseExact("03/23/2022 08:40", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
-            },
-            new DeviceDomain.DeviceDetails
-            {
-                Id = Guid.NewGuid(),
-                DeviceId = new Guid("b2780a57-cce2-4244-9c28-5cee4c04f6b7"),
-                Temperature = 30.748f,
-                Usage = 32532523,
-                CreationTime = DateTime.ParseExact("03/23/2022 08:50", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
-            },
+                new DeviceDomain.DeviceDetails
+                {
+                    Id = Guid.NewGuid(),
+                    DeviceId = new Guid("b2780a57-cce2-4244-9c28-5cee4c04f6b7"),
+                    Temperature = 29.458f,
+                    Usage = 451552,
+                    CreationTime = DateTime.ParseExact("03/23/2022 08:30", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
+                new DeviceDomain.DeviceDetails
+                {
+                    Id = Guid.NewGuid(),
+                    DeviceId = new Guid("b2780a57-cce2-4244-9c28-5cee4c04f6b7"),
+                    Temperature = 30.658f,
+                    Usage = 2352352,
+                    CreationTime = DateTime.ParseExact("03/23/2022 08:40", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
+                new DeviceDomain.DeviceDetails
+                {
+                    Id = Guid.NewGuid(),
+                    DeviceId = new Guid("b2780a57-cce2-4244-9c28-5cee4c04f6b7"),
+                    Temperature = 30.748f,
+                    Usage = 32532523,
+                    CreationTime = DateTime.ParseExact("03/23/2022 08:50", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
 
-            new DeviceDomain.DeviceDetails
-            {
-                Id = Guid.NewGuid(),
-                DeviceId = new Guid("edd25796-460b-4da4-8340-4a283024d506"),
-                Temperature = 30.458f,
-                Usage = 451552,
-                CreationTime = DateTime.ParseExact("03/23/2022 08:30", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
-            },
-            new DeviceDomain.DeviceDetails
-            {
-                Id = Guid.NewGuid(),
-                DeviceId = new Guid("edd25796-460b-4da4-8340-4a283024d506"),
-                Temperature = 33.458f,
-                Usage = 235235,
-                CreationTime = DateTime.ParseExact("03/23/2022 08:40", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
-            },
-            new DeviceDomain.DeviceDetails
-            {
-                Id = Guid.NewGuid(),
-                DeviceId = new Guid("edd25796-460b-4da4-8340-4a283024d506"),
-                Temperature = 30.358f,
-                Usage = 23523,
-                CreationTime = DateTime.ParseExact("03/23/2022 08:50", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
-            },
+                new DeviceDomain.DeviceDetails
+                {
+                    Id = Guid.NewGuid(),
+                    DeviceId = new Guid("edd25796-460b-4da4-8340-4a283024d506"),
+                    Temperature = 30.458f,
+                    Usage = 451552,
+                    CreationTime = DateTime.ParseExact("03/23/2022 08:30", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
+                new DeviceDomain.DeviceDetails
+                {
+                    Id = Guid.NewGuid(),
+                    DeviceId = new Guid("edd25796-460b-4da4-8340-4a283024d506"),
+                    Temperature = 33.458f,
+                    Usage = 235235,
+                    CreationTime = DateTime.ParseExact("03/23/2022 08:40", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
+                new DeviceDomain.DeviceDetails
+                {
+                    Id = Guid.NewGuid(),
+                    DeviceId = new Guid("edd25796-460b-4da4-8340-4a283024d506"),
+                    Temperature = 30.358f,
+                    Usage = 23523,
+                    CreationTime = DateTime.ParseExact("03/23/2022 08:50", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
 
-            new DeviceDomain.DeviceDetails
-            {
-                Id = Guid.NewGuid(),
-                DeviceId = new Guid("9bea121f-ae8e-4db3-b433-419596e573eb"),
-                Temperature = 30.458f,
-                Usage = 3463443,
-                CreationTime = DateTime.ParseExact("03/23/2022 08:30", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
-            },
-            new DeviceDomain.DeviceDetails
-            {
-                Id = Guid.NewGuid(),
-                DeviceId = new Guid("9bea121f-ae8e-4db3-b433-419596e573eb"),
-                Temperature = 32.458f,
-                Usage = 321532,
-                CreationTime = DateTime.ParseExact("03/23/2022 08:40", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
-            },
-            new DeviceDomain.DeviceDetails
-            {
-                Id = Guid.NewGuid(),
-                DeviceId = new Guid("9bea121f-ae8e-4db3-b433-419596e573eb"),
-                Temperature = 31.98f,
-                Usage = 23523523,
-                CreationTime = DateTime.ParseExact("03/23/2022 08:50", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
-            }
+                new DeviceDomain.DeviceDetails
+                {
+                    Id = Guid.NewGuid(),
+                    DeviceId = new Guid("9bea121f-ae8e-4db3-b433-419596e573eb"),
+                    Temperature = 30.458f,
+                    Usage = 3463443,
+                    CreationTime = DateTime.ParseExact("03/23/2022 08:30", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
+                new DeviceDomain.DeviceDetails
+                {
+                    Id = Guid.NewGuid(),
+                    DeviceId = new Guid("9bea121f-ae8e-4db3-b433-419596e573eb"),
+                    Temperature = 32.458f,
+                    Usage = 321532,
+                    CreationTime = DateTime.ParseExact("03/23/2022 08:40", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
+                new DeviceDomain.DeviceDetails
+                {
+                    Id = Guid.NewGuid(),
+                    DeviceId = new Guid("9bea121f-ae8e-4db3-b433-419596e573eb"),
+                    Temperature = 31.98f,
+                    Usage = 23523523,
+                    CreationTime = DateTime.ParseExact("03/23/2022 08:50", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
+
+                new DeviceDomain.DeviceDetails
+                {
+                    Id = Guid.NewGuid(),
+                    DeviceId = new Guid("5b9eda9d-d878-4b6d-b041-11e725bcccd4"),
+                    Temperature = 30.458f,
+                    Usage = 3463443,
+                    CreationTime = DateTime.ParseExact("03/23/2022 08:30", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
+                new DeviceDomain.DeviceDetails
+                {
+                    Id = Guid.NewGuid(),
+                    DeviceId = new Guid("5b9eda9d-d878-4b6d-b041-11e725bcccd4"),
+                    Temperature = 32.458f,
+                    Usage = 321532,
+                    CreationTime = DateTime.ParseExact("03/23/2022 08:40", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
+                new DeviceDomain.DeviceDetails
+                {
+                    Id = Guid.NewGuid(),
+                    DeviceId = new Guid("5b9eda9d-d878-4b6d-b041-11e725bcccd4"),
+                    Temperature = 31.98f,
+                    Usage = 23523523,
+                    CreationTime = DateTime.ParseExact("03/23/2022 08:50", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
+
+                new DeviceDomain.DeviceDetails
+                {
+                    Id = Guid.NewGuid(),
+                    DeviceId = new Guid("cde3b44e-9603-4fc4-89b4-a027c3aab5eb"),
+                    Temperature = 30.458f,
+                    Usage = 3463443,
+                    CreationTime = DateTime.ParseExact("03/23/2022 08:30", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
+                new DeviceDomain.DeviceDetails
+                {
+                    Id = Guid.NewGuid(),
+                    DeviceId = new Guid("cde3b44e-9603-4fc4-89b4-a027c3aab5eb"),
+                    Temperature = 32.458f,
+                    Usage = 321532,
+                    CreationTime = DateTime.ParseExact("03/23/2022 08:40", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
+                new DeviceDomain.DeviceDetails
+                {
+                    Id = Guid.NewGuid(),
+                    DeviceId = new Guid("cde3b44e-9603-4fc4-89b4-a027c3aab5eb"),
+                    Temperature = 31.98f,
+                    Usage = 23523523,
+                    CreationTime = DateTime.ParseExact("03/23/2022 08:50", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
+
+                new DeviceDomain.DeviceDetails
+                {
+                    Id = Guid.NewGuid(),
+                    DeviceId = new Guid("8f458b6f-40d7-48ac-9277-6727c45cfd22"),
+                    Temperature = 30.458f,
+                    Usage = 3463443,
+                    CreationTime = DateTime.ParseExact("03/23/2022 08:30", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
+                new DeviceDomain.DeviceDetails
+                {
+                    Id = Guid.NewGuid(),
+                    DeviceId = new Guid("8f458b6f-40d7-48ac-9277-6727c45cfd22"),
+                    Temperature = 32.458f,
+                    Usage = 321532,
+                    CreationTime = DateTime.ParseExact("03/23/2022 08:40", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                },
+                new DeviceDomain.DeviceDetails
+                {
+                    Id = Guid.NewGuid(),
+                    DeviceId = new Guid("8f458b6f-40d7-48ac-9277-6727c45cfd22"),
+                    Temperature = 31.98f,
+                    Usage = 23523523,
+                    CreationTime = DateTime.ParseExact("03/23/2022 08:50", "MM/dd/yyyy HH:mm", new CultureInfo("en-US"))
+                }
 
             );
             #endregion
