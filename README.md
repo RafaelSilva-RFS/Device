@@ -1,5 +1,7 @@
 # Devices App
 
+------------
+
 ### Technologies
 
 - .Net core 3.1
@@ -46,6 +48,7 @@ Project | Port
 ------------- | -------------
 Device.HttpApi.Host  | 44363
 Device.Identity | 44336
+
 
 
 > **Note:** If you can't run the update-database command, you can find the SQL scripts and the database scheme into folder **aspnet-core/sql**.
@@ -107,7 +110,11 @@ An alias was created to run the test, you can type this command on sonole:
 > **IMPORTANT**
 > It's preferable to run the tests right after seeding the database, as some tests depend on these results.
 
+
+
 ------------
+
+
 
 Thank you for read until here!
 Case you have some trouble to run or some doubt don't hesitate to get in touch.
