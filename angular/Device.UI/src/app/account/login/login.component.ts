@@ -85,14 +85,11 @@ export class LoginComponent implements OnInit {
     this.loading = true;
 
     this.AccountService.LocalStorage.salvarDadosLocaisUsuario(response);
-
-    let toast = this.toastr.success('Login Successful!', 'Welcome!');
     
     this.router.navigate(['/']);
   }
 
   processarFalha(fail: any){
-    // this.errors = fail.error.errors;
     this.errors = ['Use the credentials bellow.'];
     this.toastr.error('An error has occurred!', 'Oops :(');
   }
