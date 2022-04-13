@@ -1,5 +1,6 @@
 ﻿using Device.Application.Contracts.Devices.Dtos;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Device.Application.Contracts.Devices
@@ -13,5 +14,7 @@ namespace Device.Application.Contracts.Devices
         Task<int> CountDevicesAsync(string filter, int? status, int? deviceType);
 
         Task<int> CountAllDevicesAsync();
+
+        Task<List<DeviceDto>> GetMostUsedDevices(int take);
     }
 }

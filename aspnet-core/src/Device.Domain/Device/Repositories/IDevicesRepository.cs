@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using DeviceDomain = Device.Domain.Device.Entities;
 
-namespace Device.Application.Contracts.Devices.Repositories
+namespace Device.Domain.Device.Repositories
 {
     public interface IDevicesRepository
     {
-        Task<(int, List<DeviceDomain.Device>)> GetDevicesPagedAsync(int skipCount,
+        Task<(int, List<Entities.Device>)> GetDevicesPagedAsync(int skipCount,
                                                             int maxResultCount,
                                                             string sorting,
                                                             string filter,
                                                             int? status,
                                                             int? deviceType);
 
-        Task<DeviceDomain.Device> GetDeviceByIdAsync(Guid id);
+        Task<Entities.Device> GetDeviceByIdAsync(Guid id);
 
         Task<int> CountDevicesAsync(string filter, int? status, int? deviceType);
 
         Task<int> CountAllDevicesAsync();
+
+        Task<IEnumerable<Entities.Device>> GetMostUsedDevices(int take);
     }
 }

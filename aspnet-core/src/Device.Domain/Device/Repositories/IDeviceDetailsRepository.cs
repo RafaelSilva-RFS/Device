@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 
-namespace Device.Application.Contracts.Devices
+namespace Device.Domain.Device.Repositories
 {
-    public interface IDeviceDetailService
+    public interface IDeviceDetailsRepository
     {
         Task<float> CountAllDevicesUsageAsync();
     }

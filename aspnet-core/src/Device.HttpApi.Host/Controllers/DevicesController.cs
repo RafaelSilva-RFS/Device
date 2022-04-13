@@ -13,7 +13,8 @@ namespace Device.HttpApi.Host.Controllers
 {
     [EnableCors("CorsApi")]
     [Route("api/v1/")]
-    [Authorize]
+    //[Authorize]
+    [AllowAnonymous]
     public class DevicesController : MainController
     {
         private readonly IDeviceService _deviceService;
@@ -74,16 +75,7 @@ namespace Device.HttpApi.Host.Controllers
         [Route("get-most-used-devices")]
         public async Task<List<DeviceDto>> GetMostUsedDevices(int take)
         {
-            List<DeviceDto> mostUsedDevices = new List<DeviceDto>();
-
-            var result = await _deviceDetailService.GetMostUsedDevices(take);
-
-            foreach(var item in result)
-            {
-                mostUsedDevices.Add(await _deviceService.GetDeviceByIdAsync(item.DeviceId));
-            }
-            
-            return mostUsedDevices;
+            return await _deviceService.GetMostUsedDevices(take);
         }
 
         [HttpGet]

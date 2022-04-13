@@ -1,4 +1,4 @@
-﻿using Device.Application.Contracts.Devices.Repositories;
+﻿using Device.Domain.Device.Repositories;
 using Device.DomainShared.Device.Enums;
 using Device.EntityFramework.Helpers;
 using Microsoft.EntityFrameworkCore;
@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic.Core;
-using System.Text;
 using System.Threading.Tasks;
 using DeviceDomain = Device.Domain.Device.Entities;
 
@@ -22,11 +21,11 @@ namespace Device.EntityFramework.Devices
         }
 
         public async Task<(int, List<DeviceDomain.Device>)> GetDevicesPagedAsync(int skipCount,
-                                                                          int maxResultCount,
-                                                                          string sorting,
-                                                                          string filter,
-                                                                          int? status,
-                                                                          int? deviceType)
+                                                                                 int maxResultCount,
+                                                                                 string sorting,
+                                                                                 string filter,
+                                                                                 int? status,
+                                                                                 int? deviceType)
         {
             var result = await _deviceDbContext.Devices
                         .WhereIf(!String.IsNullOrEmpty(filter), x => x.Name.Contains(filter))
@@ -68,6 +67,23 @@ namespace Device.EntityFramework.Devices
         public async Task<int> CountAllDevicesAsync()
         {
             return await _deviceDbContext.Devices.Where(x => !x.IsDeleted).CountAsync();
+        }
+
+
+        public async Task<IEnumerable<DeviceDomain.Device>> GetMostUsedDevices(int take)
+        {
+            var result = await _deviceDbContext.Devices
+                         .Where(x => !x.IsDeleted)
+                         .Include(x => x.DeviceDetails)
+                         .Select(x => new {
+                             Device = x,
+                             UsageSumDevices = x.DeviceDetails.Sum(ri => ri.Usage)
+                         })
+                         .OrderByDescending(x => x.UsageSumDevices)
+                         .Take(take)
+                         .ToListAsync();
+
+            return result.Select(x => x.Device).ToList();
         }
     }
 }

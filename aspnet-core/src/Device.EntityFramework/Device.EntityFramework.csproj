@@ -56,8 +56,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Device.Application.Contracts\Device.Application.Contracts.csproj" />
-    <ProjectReference Include="..\Device.DomainShared\Device.DomainShared.csproj" />
     <ProjectReference Include="..\Device.Domain\Device.Domain.csproj" />
   </ItemGroup>
 
