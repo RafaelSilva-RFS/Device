@@ -13,23 +13,23 @@ namespace Device.DomainShared.Controllers
 
         protected ActionResult CustomResponse(object result = null)
         {
-            if (OperacaoValida())
+            if (ValidOperation())
             {
                 return Ok(result);
             }
 
             return BadRequest(new ValidationProblemDetails(new Dictionary<string, string[]>
             {
-                { "Mensagens", Erros.ToArray() }
+                { "Messages", Erros.ToArray() }
             }));
         }
 
         protected ActionResult CustomResponse(ModelStateDictionary modelState)
         {
-            var erros = modelState.Values.SelectMany(e => e.Errors);
-            foreach (var erro in erros)
+            var errors = modelState.Values.SelectMany(e => e.Errors);
+            foreach (var erro in errors)
             {
-                AdicionarErroProcessamento(erro.ErrorMessage);
+                AddProcessingError(erro.ErrorMessage);
             }
 
             return CustomResponse();
@@ -37,25 +37,25 @@ namespace Device.DomainShared.Controllers
 
         protected ActionResult CustomResponse(ValidationResult validationResult)
         {
-            foreach (var erro in validationResult.Errors)
+            foreach (var error in validationResult.Errors)
             {
-                AdicionarErroProcessamento(erro.ErrorMessage);
+                AddProcessingError(error.ErrorMessage);
             }
 
             return CustomResponse();
         }
 
-        protected bool OperacaoValida()
+        protected bool ValidOperation()
         {
             return !Erros.Any();
         }
 
-        protected void AdicionarErroProcessamento(string erro)
+        protected void AddProcessingError(string error)
         {
-            Erros.Add(erro);
+            Erros.Add(error);
         }
 
-        protected void LimparErrosProcessamento()
+        protected void ClearProcessingError()
         {
             Erros.Clear();
         }

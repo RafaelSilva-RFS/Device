@@ -32,27 +32,27 @@ namespace Device.Identity.Controllers
         }
 
         [HttpPost("new-user")]
-        public async Task<ActionResult> Registrar(UserRegister usuarioRegistro)
+        public async Task<ActionResult> Register(UserRegister usuarioRegister)
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
             var user = new IdentityUser
             {
-                UserName = usuarioRegistro.Email,
-                Email = usuarioRegistro.Email,
+                UserName = usuarioRegister.Email,
+                Email = usuarioRegister.Email,
                 EmailConfirmed = true
             };
 
-            var result = await _userManager.CreateAsync(user, usuarioRegistro.Password);
+            var result = await _userManager.CreateAsync(user, usuarioRegister.Password);
 
             if (result.Succeeded)
             {
-                return CustomResponse(await GerarJwt(usuarioRegistro.Email));
+                return CustomResponse(await GenerateJwt(usuarioRegister.Email));
             }
 
             foreach (var error in result.Errors)
             {
-                AdicionarErroProcessamento(error.Description);
+                AddProcessingError(error.Description);
             }
 
             return CustomResponse();
@@ -68,31 +68,31 @@ namespace Device.Identity.Controllers
 
             if (result.Succeeded)
             {
-                return CustomResponse(await GerarJwt(usuarioLogin.Email));
+                return CustomResponse(await GenerateJwt(usuarioLogin.Email));
             }
 
             if (result.IsLockedOut)
             {
-                AdicionarErroProcessamento("User temporarily blocked for invalid attempts");
+                AddProcessingError("User temporarily blocked for invalid attempts");
                 return CustomResponse();
             }
 
-            AdicionarErroProcessamento("Incorrect username or password");
+            AddProcessingError("Incorrect username or password");
             return CustomResponse();
         }
 
-        private async Task<UserResponseLogin> GerarJwt(string email)
+        private async Task<UserResponseLogin> GenerateJwt(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
             var claims = await _userManager.GetClaimsAsync(user);
 
-            var identityClaims = await ObterClaimsUsuario(claims, user);
-            var encodedToken = CodificarToken(identityClaims);
+            var identityClaims = await GetUserClaims(claims, user);
+            var encodedToken = EncodeToken(identityClaims);
 
-            return ObterRespostaToken(encodedToken, user, claims);
+            return GetTokenResponse(encodedToken, user, claims);
         }
 
-        private async Task<ClaimsIdentity> ObterClaimsUsuario(ICollection<Claim> claims, IdentityUser user)
+        private async Task<ClaimsIdentity> GetUserClaims(ICollection<Claim> claims, IdentityUser user)
         {
             var userRoles = await _userManager.GetRolesAsync(user);
 
@@ -112,7 +112,7 @@ namespace Device.Identity.Controllers
             return identityClaims;
         }
 
-        private string CodificarToken(ClaimsIdentity identityClaims)
+        private string EncodeToken(ClaimsIdentity identityClaims)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
@@ -128,7 +128,7 @@ namespace Device.Identity.Controllers
             return tokenHandler.WriteToken(token);
         }
 
-        private UserResponseLogin ObterRespostaToken(string encodedToken, IdentityUser user, IEnumerable<Claim> claims)
+        private UserResponseLogin GetTokenResponse(string encodedToken, IdentityUser user, IEnumerable<Claim> claims)
         {
             return new UserResponseLogin
             {
